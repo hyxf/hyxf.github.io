@@ -18,22 +18,7 @@ showmei
 hello world
 
 
-helldjffree okhttp shuccess
-
-
-ho
-
-helllo
-
-hello
-
-hello
-
-
-hello
-hello dfdfdf
-hellodfeeee
-hello">
+helldjffree okhttp shuccess">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的测试页面">
 <meta property="og:url" content="http://www.gutils.com/2016/07/07/hello-gutils/index.html">
@@ -50,23 +35,8 @@ showmei
 hello world
 
 
-helldjffree okhttp shuccess
-
-
-ho
-
-helllo
-
-hello
-
-hello
-
-
-hello
-hello dfdfdf
-hellodfeeee
-hello">
-<meta property="og:updated_time" content="2016-07-16T04:08:33.000Z">
+helldjffree okhttp shuccess">
+<meta property="og:updated_time" content="2016-07-16T04:11:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我的测试页面">
 <meta name="twitter:description" content="hello
@@ -81,22 +51,7 @@ showmei
 hello world
 
 
-helldjffree okhttp shuccess
-
-
-ho
-
-helllo
-
-hello
-
-hello
-
-
-hello
-hello dfdfdf
-hellodfeeee
-hello">
+helldjffree okhttp shuccess">
   
     <link rel="alternative" href="/atom.xml" title="GUtils" type="application/atom+xml">
   
@@ -292,6 +247,7 @@ hello">
 <li><p>helldjffree <a href="http://www.baidu.com" target="_blank" rel="external">okhttp</a> shuccess</p>
 </li>
 </ul>
+<a id="more"></a>
 <h1 id="ho"><a href="#ho" class="headerlink" title="ho"></a><strong>ho</strong></h1><hr>
 <ol>
 <li><p>helllo</p>
@@ -306,7 +262,6 @@ hello">
 <p>hellodfeeee</p>
 <p>hello</p>
 </blockquote>
-<a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTerminate</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">// 销毁百度地图和百度定位</span></div><div class="line">    destoryBaiDu();</div><div class="line">    <span class="keyword">super</span>.onTerminate();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>or Gradle:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">HttpParams params = <span class="keyword">new</span> HttpParams();</div><div class="line"></div><div class="line"><span class="comment">//http header, optional parameters</span></div><div class="line">params.putHeaders(<span class="string">"cookie"</span>, <span class="string">"your cookie"</span>);</div><div class="line">params.putHeaders(<span class="string">"User-Agent"</span>, <span class="string">"rxvolley"</span>);</div><div class="line"></div><div class="line"><span class="comment">//request parameters</span></div><div class="line">params.put(<span class="string">"name"</span>, <span class="string">"kymjs"</span>);</div><div class="line">params.put(<span class="string">"age"</span>, <span class="string">"18"</span>);</div><div class="line"></div><div class="line">HttpCallback callBack = <span class="keyword">new</span> HttpCallback()&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(String t)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(<span class="keyword">int</span> errorNo, String strMsg)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">new</span> RxVolley.Builder()</div><div class="line">    .url(<span class="string">"http://www.kymjs.com/rss.xml"</span>)</div><div class="line">    .httpMethod(RxVolley.Method.GET) <span class="comment">//default GET or POST/PUT/DELETE/HEAD/OPTIONS/TRACE/PATCH</span></div><div class="line">    .cacheTime(<span class="number">6</span>) <span class="comment">//default: get 5min, post 0min</span></div><div class="line">    .contentType(RxVolley.ContentType.FORM)<span class="comment">//default FORM or JSON</span></div><div class="line">    .params(params)</div><div class="line">    .shouldCache(<span class="keyword">true</span>) <span class="comment">//default: get true, post false</span></div><div class="line">    .callback(callBack)</div><div class="line">    .encoding(<span class="string">"UTF-8"</span>) <span class="comment">//default</span></div><div class="line">    .doTask();</div></pre></td></tr></table></figure>
