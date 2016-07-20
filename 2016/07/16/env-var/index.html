@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="GUtils">
 <meta property="og:description" content="java环境变量
 1export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)">
-<meta property="og:updated_time" content="2016-07-20T02:59:56.000Z">
+<meta property="og:updated_time" content="2016-07-20T05:47:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java环境变量【Mac】">
 <meta name="twitter:description" content="java环境变量
@@ -197,9 +197,6 @@
       
         <p>java环境变量</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> JAVA_HOME=$(/usr/libexec/java_home -v 1.8)</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>代码生成器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bindResourceFields</span><span class="params">(MethodSpec.Builder builder)</span> </span>&#123;</div><div class="line">      <span class="keyword">for</span> (Resource res : mResList) &#123;</div><div class="line">          ResourceType resourceType = res.getResourceType();</div><div class="line">          ClassName className = ClassName.get(NameUtils.getPackageName(res), resourceType.getClassName());</div><div class="line">          String varName = NameUtils.getResourceName(res, containM());</div><div class="line">          String varId = res.getResourceId().getName();</div><div class="line">          <span class="keyword">if</span> (containViewDot()) &#123;</div><div class="line">              builder.addStatement(<span class="string">"$L = ($T)view.findViewById(R.id.$L)"</span>, varName, className, varId);</div><div class="line">              <span class="keyword">if</span>(needBtnClick() &amp;&amp; res.isHasBtn())&#123;</div><div class="line">                  builder.addStatement(<span class="string">"$L.setOnClickListener(this)"</span>,varName);</div><div class="line">              &#125;</div><div class="line">          &#125; <span class="keyword">else</span> &#123;</div><div class="line">              builder.addStatement(<span class="string">"$L = ($T)findViewById(R.id.$L)"</span>, varName, className, varId);</div><div class="line">              <span class="keyword">if</span>(needBtnClick() &amp;&amp; res.isHasBtn())&#123;</div><div class="line">                  builder.addStatement(<span class="string">"$L.setOnClickListener(this)"</span>,varName);</div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
 
       
     </div>
