@@ -4,27 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>freemarker实例 | GUtils</title>
+  <title>velocity实例 | GUtils</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="库引入
 build.gradle
 
-123dependencies &amp;#123;    compile group: &apos;org.freemarker&apos;, name: &apos;freemarker&apos;, version: &apos;2.3.23&apos;&amp;#125;">
+123dependencies &amp;#123;    compile group: &apos;org.apache.velocity&apos;, name: &apos;velocity&apos;, version: &apos;1.7&apos;&amp;#125;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="freemarker实例">
-<meta property="og:url" content="http://www.gutils.com/2016/07/20/freemarker-use/index.html">
+<meta property="og:title" content="velocity实例">
+<meta property="og:url" content="http://www.gutils.com/2016/07/25/velocity-use/index.html">
 <meta property="og:site_name" content="GUtils">
 <meta property="og:description" content="库引入
 build.gradle
 
-123dependencies &amp;#123;    compile group: &apos;org.freemarker&apos;, name: &apos;freemarker&apos;, version: &apos;2.3.23&apos;&amp;#125;">
-<meta property="og:updated_time" content="2016-07-20T15:24:05.000Z">
+123dependencies &amp;#123;    compile group: &apos;org.apache.velocity&apos;, name: &apos;velocity&apos;, version: &apos;1.7&apos;&amp;#125;">
+<meta property="og:updated_time" content="2016-07-25T01:39:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="freemarker实例">
+<meta name="twitter:title" content="velocity实例">
 <meta name="twitter:description" content="库引入
 build.gradle
 
-123dependencies &amp;#123;    compile group: &apos;org.freemarker&apos;, name: &apos;freemarker&apos;, version: &apos;2.3.23&apos;&amp;#125;">
+123dependencies &amp;#123;    compile group: &apos;org.apache.velocity&apos;, name: &apos;velocity&apos;, version: &apos;1.7&apos;&amp;#125;">
   
     <link rel="alternative" href="/atom.xml" title="GUtils" type="application/atom+xml">
   
@@ -164,11 +164,11 @@ build.gradle
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-freemarker-use" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-velocity-use" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/20/freemarker-use/" class="article-date">
-  	<time datetime="2016-07-20T10:30:08.000Z" itemprop="datePublished">2016-07-20</time>
+      <a href="/2016/07/25/velocity-use/" class="article-date">
+  	<time datetime="2016-07-25T01:37:14.000Z" itemprop="datePublished">2016-07-25</time>
 </a>
     </div>
   
@@ -181,7 +181,7 @@ build.gradle
         
   
     <h1 class="article-title" itemprop="name">
-      freemarker实例
+      velocity实例
     </h1>
   
 
@@ -204,14 +204,14 @@ build.gradle
         <h2 id="库引入"><a href="#库引入" class="headerlink" title="库引入"></a>库引入</h2><blockquote>
 <p>build.gradle</p>
 </blockquote>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">group:</span> <span class="string">'org.freemarker'</span>, <span class="string">name:</span> <span class="string">'freemarker'</span>, <span class="string">version:</span> <span class="string">'2.3.23'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">group:</span> <span class="string">'org.apache.velocity'</span>, <span class="string">name:</span> <span class="string">'velocity'</span>, <span class="string">version:</span> <span class="string">'1.7'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="模板代码"><a href="#模板代码" class="headerlink" title="模板代码"></a>模板代码</h2><blockquote>
-<p>模板名称：UserActivity.ftl</p>
-<p>模板文件位置：工程名/src/main/resources/ftl/UserActivity.ftl</p>
+<p>模板名称：UserActivity.vm</p>
+<p>模板文件位置：工程名/src/main/resources/vm/UserActivity.vm</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hello:$&#123;user&#125;</div></pre></td></tr></table></figure>
-<h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">      Writer writer = <span class="keyword">new</span> StringWriter();</div><div class="line">      Configuration config = <span class="keyword">new</span> Configuration(Configuration.VERSION_2_3_23);</div><div class="line">      config.setClassForTemplateLoading(Exec.class, <span class="string">"/ftl/"</span>);</div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">          Template template = config.getTemplate(<span class="string">"UserActivity.ftl"</span>, <span class="string">"utf-8"</span>);</div><div class="line">          Map&lt;String, String&gt; rootObj = <span class="keyword">new</span> HashMap&lt;String, String&gt;();</div><div class="line">          rootObj.put(<span class="string">"user"</span>,<span class="string">"hyxf"</span>);</div><div class="line">          template.process(rootObj, writer);</div><div class="line">          System.out.println(writer.toString());</div><div class="line">          writer.flush();</div><div class="line">      &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">          e.printStackTrace();</div><div class="line">      &#125; <span class="keyword">catch</span> (TemplateException e) &#123;</div><div class="line">          e.printStackTrace();</div><div class="line">      &#125; <span class="keyword">finally</span> &#123;</div><div class="line">          <span class="keyword">try</span> &#123;</div><div class="line">              writer.close();</div><div class="line">          &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">              e.printStackTrace();</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hello $username</div></pre></td></tr></table></figure>
+<h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">       <span class="comment">//初始化模板引擎</span></div><div class="line">       VelocityEngine engine = <span class="keyword">new</span> VelocityEngine();</div><div class="line">       engine.setProperty(RuntimeConstants.RESOURCE_LOADER, <span class="string">"classpath"</span>);</div><div class="line">       engine.setProperty(<span class="string">"classpath.resource.loader.class"</span>, ClasspathResourceLoader.class.getName());<span class="comment">//--</span></div><div class="line">       engine.init();;</div><div class="line">       <span class="comment">//获取模板</span></div><div class="line">       Template template = engine.getTemplate(<span class="string">"vm/UserActivity.vm"</span>);</div><div class="line">       <span class="comment">//数据模型定义</span></div><div class="line">       VelocityContext context = <span class="keyword">new</span> VelocityContext();</div><div class="line">       context.put(<span class="string">"username"</span>,<span class="string">"hyxf"</span>);</div><div class="line">       <span class="comment">//定义输出</span></div><div class="line">       StringWriter writer = <span class="keyword">new</span> StringWriter();</div><div class="line">       template.merge(context,writer);</div><div class="line">       System.out.println(writer.toString());</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -221,18 +221,9 @@ build.gradle
     
 <nav id="article-nav">
   
-    <a href="/2016/07/25/velocity-use/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          velocity实例
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/07/20/go2shell-config/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">go2shell 配置</div>
+    <a href="/2016/07/20/freemarker-use/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">freemarker实例</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
