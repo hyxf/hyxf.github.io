@@ -4,14 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: mac | GUtils</title>
+  <title>gradle访问maven私服 | GUtils</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="GUtils">
-<meta property="og:url" content="http://www.gutils.com/tags/mac/index.html">
+  <meta name="description" content="Gradle 设置用户名密码访问Maven私服">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gradle访问maven私服">
+<meta property="og:url" content="http://www.gutils.com/2016/07/26/gradle-maven-credentials/index.html">
 <meta property="og:site_name" content="GUtils">
+<meta property="og:description" content="Gradle 设置用户名密码访问Maven私服">
+<meta property="og:updated_time" content="2016-07-26T06:40:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GUtils">
+<meta name="twitter:title" content="gradle访问maven私服">
+<meta name="twitter:description" content="Gradle 设置用户名密码访问Maven私服">
   
     <link rel="alternative" href="/atom.xml" title="GUtils" type="application/atom+xml">
   
@@ -151,84 +155,71 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-gradle-maven-credentials" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/25/ttygif-use/" class="archive-article-date">
-  	<time datetime="2016-07-25T03:17:28.000Z" itemprop="datePublished">7月 25</time>
+    <div class="article-meta">
+      <a href="/2016/07/26/gradle-maven-credentials/" class="article-date">
+  	<time datetime="2016-07-26T06:36:43.000Z" itemprop="datePublished">2016-07-26</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/25/ttygif-use/">ttygif 使用</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      gradle访问maven私服
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Gradle-设置用户名密码访问Maven私服"><a href="#Gradle-设置用户名密码访问Maven私服" class="headerlink" title="Gradle 设置用户名密码访问Maven私服"></a>Gradle 设置用户名密码访问Maven私服</h3><a id="more"></a>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">       maven&#123;</div><div class="line">           url getProperty(<span class="string">'http://xxxxx/public'</span>)</div><div class="line">           credentials &#123;</div><div class="line">               username = <span class="string">'hyxf'</span></div><div class="line">               password = <span class="string">'hyxfpass'</span></div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/26/hexo-yilia-code-show-bug/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo yilia 主题 代码片段显示异常处理</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/20/go2shell-config/" class="archive-article-date">
-  	<time datetime="2016-07-20T02:53:23.000Z" itemprop="datePublished">7月 20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/20/go2shell-config/">go2shell 配置</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
 
 </div>
       <footer id="footer">
@@ -255,9 +246,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
