@@ -6,43 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>不输密码SSH直接登陆linux服务器 | GUtils</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 登陆服务器，进入.ssh文件夹1cd ~/.ssh/
-如果.ssh文件夹不存在，创建一个：
-1mkdir ~/.ssh
-2. 生成公钥1ssh-keygen -t rsa
-
-默认公钥文件名：id_rsa.pub
-
-3. 将本地公钥复制到服务器端.ssh目录1scp id_rsa.pub username@server:~/.ssh/id_rsa.pub
-
-注：如果服务器上没有.ssh文件夹，">
+  <meta name="description" content="1. 登陆服务器，进入.ssh文件夹1cd ~/.ssh/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="不输密码SSH直接登陆linux服务器">
 <meta property="og:url" content="http://www.gutils.com/2016/08/02/ssh-linus-login/index.html">
 <meta property="og:site_name" content="GUtils">
-<meta property="og:description" content="1. 登陆服务器，进入.ssh文件夹1cd ~/.ssh/
-如果.ssh文件夹不存在，创建一个：
-1mkdir ~/.ssh
-2. 生成公钥1ssh-keygen -t rsa
-
-默认公钥文件名：id_rsa.pub
-
-3. 将本地公钥复制到服务器端.ssh目录1scp id_rsa.pub username@server:~/.ssh/id_rsa.pub
-
-注：如果服务器上没有.ssh文件夹，">
-<meta property="og:updated_time" content="2016-08-01T16:11:04.000Z">
+<meta property="og:description" content="1. 登陆服务器，进入.ssh文件夹1cd ~/.ssh/">
+<meta property="og:updated_time" content="2016-08-01T16:12:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="不输密码SSH直接登陆linux服务器">
-<meta name="twitter:description" content="1. 登陆服务器，进入.ssh文件夹1cd ~/.ssh/
-如果.ssh文件夹不存在，创建一个：
-1mkdir ~/.ssh
-2. 生成公钥1ssh-keygen -t rsa
-
-默认公钥文件名：id_rsa.pub
-
-3. 将本地公钥复制到服务器端.ssh目录1scp id_rsa.pub username@server:~/.ssh/id_rsa.pub
-
-注：如果服务器上没有.ssh文件夹，">
+<meta name="twitter:description" content="1. 登陆服务器，进入.ssh文件夹1cd ~/.ssh/">
   
     <link rel="alternative" href="/atom.xml" title="GUtils" type="application/atom+xml">
   
@@ -220,6 +193,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="1-登陆服务器，进入-ssh文件夹"><a href="#1-登陆服务器，进入-ssh文件夹" class="headerlink" title="1. 登陆服务器，进入.ssh文件夹"></a>1. 登陆服务器，进入.ssh文件夹</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/.ssh/</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>如果.ssh文件夹不存在，创建一个：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir ~/.ssh</div></pre></td></tr></table></figure>
 <h1 id="2-生成公钥"><a href="#2-生成公钥" class="headerlink" title="2. 生成公钥"></a>2. 生成公钥</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div></pre></td></tr></table></figure>

@@ -180,21 +180,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="1-登陆服务器，进入-ssh文件夹"><a href="#1-登陆服务器，进入-ssh文件夹" class="headerlink" title="1. 登陆服务器，进入.ssh文件夹"></a>1. 登陆服务器，进入.ssh文件夹</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/.ssh/</div></pre></td></tr></table></figure>
-<p>如果.ssh文件夹不存在，创建一个：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir ~/.ssh</div></pre></td></tr></table></figure>
-<h1 id="2-生成公钥"><a href="#2-生成公钥" class="headerlink" title="2. 生成公钥"></a>2. 生成公钥</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div></pre></td></tr></table></figure>
-<blockquote>
-<p>默认公钥文件名：id_rsa.pub</p>
-</blockquote>
-<h1 id="3-将本地公钥复制到服务器端-ssh目录"><a href="#3-将本地公钥复制到服务器端-ssh目录" class="headerlink" title="3. 将本地公钥复制到服务器端.ssh目录"></a>3. 将本地公钥复制到服务器端.ssh目录</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp id_rsa.pub username@server:~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注：如果服务器上没有.ssh文件夹，需要先登录服务器进行创建。</p>
-</blockquote>
-<h1 id="4-登录到服务器（需要输入密码），创建-authorized-keys-文件"><a href="#4-登录到服务器（需要输入密码），创建-authorized-keys-文件" class="headerlink" title="4. 登录到服务器（需要输入密码），创建 authorized_keys 文件"></a>4. 登录到服务器（需要输入密码），创建 authorized_keys 文件</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssh username@server</div><div class="line"><span class="built_in">cd</span> ~/.ssh</div><div class="line">cat id_rsa.pub &gt;&gt; authorized_keys</div></pre></td></tr></table></figure>
-<h1 id="5-删除服务器端公钥文件"><a href="#5-删除服务器端公钥文件" class="headerlink" title="5. 删除服务器端公钥文件"></a>5. 删除服务器端公钥文件</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm id_rsa.pub</div></pre></td></tr></table></figure>
-<h1 id="6-退出服务器"><a href="#6-退出服务器" class="headerlink" title="6. 退出服务器"></a>6. 退出服务器</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">exit</span></div></pre></td></tr></table></figure>
-<h1 id="7-再次登录时就无需输入密码"><a href="#7-再次登录时就无需输入密码" class="headerlink" title="7. 再次登录时就无需输入密码"></a>7. 再次登录时就无需输入密码</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssh username@server</div><div class="line">Welcome hyxf VM System !</div><div class="line">[root@aliyun-hyxf ~]<span class="comment">#</span></div></pre></td></tr></table></figure>
-
       
     </div>
     
@@ -207,6 +192,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/08/02/ssh-linus-login/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
