@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://www.gutils.com/2016/08/01/centos-git-use/index.html">
 <meta property="og:site_name" content="GUtils">
 <meta property="og:description" content="server1.首先安装git1yum install git">
-<meta property="og:updated_time" content="2016-08-01T08:38:16.000Z">
+<meta property="og:updated_time" content="2016-08-01T09:09:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos搭建GIT服务器">
 <meta name="twitter:description" content="server1.首先安装git1yum install git">
@@ -193,6 +193,10 @@
 <h1 id="2-新建一个linux用户，起名为git"><a href="#2-新建一个linux用户，起名为git" class="headerlink" title="2.新建一个linux用户，起名为git"></a>2.新建一个linux用户，起名为git</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">groupadd git</div><div class="line">useradd <span class="_">-d</span> /home/git -g git -m git</div><div class="line">passwd git</div></pre></td></tr></table></figure>
 <h1 id="3-在git用户目录中新建目录-ssh"><a href="#3-在git用户目录中新建目录-ssh" class="headerlink" title="3.在git用户目录中新建目录 .ssh"></a>3.在git用户目录中新建目录 .ssh</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /home/git/</div><div class="line">mkdir .ssh</div></pre></td></tr></table></figure>
 <h1 id="4-在-home-git-ssh-目录中新建authorized-keys文件，并将客户端提供的公钥-id-rsa-pub-黏贴到该文件中"><a href="#4-在-home-git-ssh-目录中新建authorized-keys文件，并将客户端提供的公钥-id-rsa-pub-黏贴到该文件中" class="headerlink" title="4.在/home/git/.ssh/目录中新建authorized_keys文件，并将客户端提供的公钥(id_rsa.pub)黏贴到该文件中"></a>4.在/home/git/.ssh/目录中新建authorized_keys文件，并将客户端提供的公钥(id_rsa.pub)黏贴到该文件中</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch authorized_keys 或 vi authorized_keys</div></pre></td></tr></table></figure>
+<blockquote>
+<p>粘贴公钥后需要重启ssh</p>
+<p>service sshd restart</p>
+</blockquote>
 <h1 id="5-在项目目录创建一个git裸仓库，假如当前项目目录为-home-git-project-git"><a href="#5-在项目目录创建一个git裸仓库，假如当前项目目录为-home-git-project-git" class="headerlink" title="5.在项目目录创建一个git裸仓库，假如当前项目目录为/home/git/project.git"></a>5.在项目目录创建一个git裸仓库，假如当前项目目录为/home/git/project.git</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init --bare project.git</div></pre></td></tr></table></figure>
 <h1 id="6-将项目目录和git用户目录下的-ssh目录的所有者和所属组都设置成git"><a href="#6-将项目目录和git用户目录下的-ssh目录的所有者和所属组都设置成git" class="headerlink" title="6.将项目目录和git用户目录下的.ssh目录的所有者和所属组都设置成git"></a>6.将项目目录和git用户目录下的.ssh目录的所有者和所属组都设置成git</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">chown -R git:git /home/git</div><div class="line">chown -R git:git /home/git/.ssh/</div><div class="line">chmod -R 700 /home/git</div><div class="line">chmod -R 700 /home/git/.ssh/</div></pre></td></tr></table></figure>
 <h1 id="7-为了安全考虑，禁用git用户的shell登录"><a href="#7-为了安全考虑，禁用git用户的shell登录" class="headerlink" title="7.为了安全考虑，禁用git用户的shell登录"></a>7.为了安全考虑，禁用git用户的shell登录</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vi /etc/passwd</div><div class="line">注释 <span class="comment">##git:x:500:500::/home/git:/bin/bash</span></div><div class="line">改为 git:x:500:500:git version control:/home/git:/usr/bin/git-shell</div></pre></td></tr></table></figure>
