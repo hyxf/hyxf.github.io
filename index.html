@@ -180,21 +180,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><h1 id="1-首先安装git"><a href="#1-首先安装git" class="headerlink" title="1.首先安装git"></a>1.首先安装git</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install git</div></pre></td></tr></table></figure>
-<h1 id="2-新建一个linux用户，起名为git"><a href="#2-新建一个linux用户，起名为git" class="headerlink" title="2.新建一个linux用户，起名为git"></a>2.新建一个linux用户，起名为git</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">groupadd git</div><div class="line">useradd <span class="_">-d</span> /home/git -g git -m git</div><div class="line">passwd git</div></pre></td></tr></table></figure>
-<h1 id="3-在git用户目录中新建目录-ssh"><a href="#3-在git用户目录中新建目录-ssh" class="headerlink" title="3.在git用户目录中新建目录 .ssh"></a>3.在git用户目录中新建目录 .ssh</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /home/git/</div><div class="line">mkdir .ssh</div></pre></td></tr></table></figure>
-<h1 id="4-在-home-git-ssh-目录中新建authorized-keys文件，并将客户端提供的公钥-id-rsa-pub-黏贴到该文件中"><a href="#4-在-home-git-ssh-目录中新建authorized-keys文件，并将客户端提供的公钥-id-rsa-pub-黏贴到该文件中" class="headerlink" title="4.在/home/git/.ssh/目录中新建authorized_keys文件，并将客户端提供的公钥(id_rsa.pub)黏贴到该文件中"></a>4.在/home/git/.ssh/目录中新建authorized_keys文件，并将客户端提供的公钥(id_rsa.pub)黏贴到该文件中</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch authorized_keys 或 vi authorized_keys</div></pre></td></tr></table></figure>
-<h1 id="5-在项目目录创建一个git裸仓库，假如当前项目目录为-home-git-project-git"><a href="#5-在项目目录创建一个git裸仓库，假如当前项目目录为-home-git-project-git" class="headerlink" title="5.在项目目录创建一个git裸仓库，假如当前项目目录为/home/git/project.git"></a>5.在项目目录创建一个git裸仓库，假如当前项目目录为/home/git/project.git</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init --bare project.git</div></pre></td></tr></table></figure>
-<h1 id="6-将项目目录和git用户目录下的-ssh目录的所有者和所属组都设置成git"><a href="#6-将项目目录和git用户目录下的-ssh目录的所有者和所属组都设置成git" class="headerlink" title="6.将项目目录和git用户目录下的.ssh目录的所有者和所属组都设置成git"></a>6.将项目目录和git用户目录下的.ssh目录的所有者和所属组都设置成git</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">chown -R git:git /home/git</div><div class="line">chown -R git:git /home/git/.ssh/</div><div class="line">chmod -R 700 /home/git</div><div class="line">chmod -R 700 /home/git/.ssh/</div></pre></td></tr></table></figure>
-<h1 id="7-为了安全考虑，禁用git用户的shell登录"><a href="#7-为了安全考虑，禁用git用户的shell登录" class="headerlink" title="7.为了安全考虑，禁用git用户的shell登录"></a>7.为了安全考虑，禁用git用户的shell登录</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vi /etc/passwd</div><div class="line">注释 <span class="comment">##git:x:500:500::/home/git:/bin/bash</span></div><div class="line">改为 git:x:500:500:git version control:/home/git:/usr/bin/git-shell</div></pre></td></tr></table></figure>
-<h1 id="8-git服务器打开RSA认证"><a href="#8-git服务器打开RSA认证" class="headerlink" title="8.git服务器打开RSA认证"></a>8.git服务器打开RSA认证</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">vi /etc/ssh/sshd_config</div><div class="line">下面3个打开</div><div class="line"> 1.RSAAuthentication yes     </div><div class="line"> 2.PubkeyAuthentication yes     </div><div class="line"> 3.AuthorizedKeysFile  .ssh/authorized_keys</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="client"><a href="#client" class="headerlink" title="client"></a>client</h2><h1 id="1-生成公钥-并复制到剪切板"><a href="#1-生成公钥-并复制到剪切板" class="headerlink" title="1.生成公钥,并复制到剪切板"></a>1.生成公钥,并复制到剪切板</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div><div class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-<blockquote>
-<p>此步骤要将公钥发给git服务器管理员</p>
-</blockquote>
-<h1 id="2-在本地新建git仓库"><a href="#2-在本地新建git仓库" class="headerlink" title="2.在本地新建git仓库"></a>2.在本地新建git仓库</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
-<h1 id="3-新建一个文件并推送到服务器"><a href="#3-新建一个文件并推送到服务器" class="headerlink" title="3.新建一个文件并推送到服务器"></a>3.新建一个文件并推送到服务器</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">touch readme.txt</div><div class="line">git add readme.txt</div><div class="line">git commit -m <span class="string">"readme"</span></div><div class="line">git remote add origin git@xxx.xxx.xxx.xxx:/home/git/project.git</div><div class="line">git push origin master</div></pre></td></tr></table></figure>
-
       
     </div>
     
@@ -203,6 +188,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/08/01/centos-git-use/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

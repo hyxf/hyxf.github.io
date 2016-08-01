@@ -6,25 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Centos搭建GIT服务器 | GUtils</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="server1.首先安装git1yum install git
-2.新建一个linux用户，起名为git123groupadd gituseradd -d /home/git -g git -m gitpasswd git
-3.在git用户目录中新建目录 .ssh12cd /home/git/mkdir .ssh
-4.在/home/git/.ssh/目录中新建authorized_keys文件，并">
+  <meta name="description" content="server1.首先安装git1yum install git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos搭建GIT服务器">
 <meta property="og:url" content="http://www.gutils.com/2016/08/01/centos-git-use/index.html">
 <meta property="og:site_name" content="GUtils">
-<meta property="og:description" content="server1.首先安装git1yum install git
-2.新建一个linux用户，起名为git123groupadd gituseradd -d /home/git -g git -m gitpasswd git
-3.在git用户目录中新建目录 .ssh12cd /home/git/mkdir .ssh
-4.在/home/git/.ssh/目录中新建authorized_keys文件，并">
-<meta property="og:updated_time" content="2016-08-01T08:37:16.000Z">
+<meta property="og:description" content="server1.首先安装git1yum install git">
+<meta property="og:updated_time" content="2016-08-01T08:38:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos搭建GIT服务器">
-<meta name="twitter:description" content="server1.首先安装git1yum install git
-2.新建一个linux用户，起名为git123groupadd gituseradd -d /home/git -g git -m gitpasswd git
-3.在git用户目录中新建目录 .ssh12cd /home/git/mkdir .ssh
-4.在/home/git/.ssh/目录中新建authorized_keys文件，并">
+<meta name="twitter:description" content="server1.首先安装git1yum install git">
   
     <link rel="alternative" href="/atom.xml" title="GUtils" type="application/atom+xml">
   
@@ -198,6 +189,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><h1 id="1-首先安装git"><a href="#1-首先安装git" class="headerlink" title="1.首先安装git"></a>1.首先安装git</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install git</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h1 id="2-新建一个linux用户，起名为git"><a href="#2-新建一个linux用户，起名为git" class="headerlink" title="2.新建一个linux用户，起名为git"></a>2.新建一个linux用户，起名为git</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">groupadd git</div><div class="line">useradd <span class="_">-d</span> /home/git -g git -m git</div><div class="line">passwd git</div></pre></td></tr></table></figure>
 <h1 id="3-在git用户目录中新建目录-ssh"><a href="#3-在git用户目录中新建目录-ssh" class="headerlink" title="3.在git用户目录中新建目录 .ssh"></a>3.在git用户目录中新建目录 .ssh</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /home/git/</div><div class="line">mkdir .ssh</div></pre></td></tr></table></figure>
 <h1 id="4-在-home-git-ssh-目录中新建authorized-keys文件，并将客户端提供的公钥-id-rsa-pub-黏贴到该文件中"><a href="#4-在-home-git-ssh-目录中新建authorized-keys文件，并将客户端提供的公钥-id-rsa-pub-黏贴到该文件中" class="headerlink" title="4.在/home/git/.ssh/目录中新建authorized_keys文件，并将客户端提供的公钥(id_rsa.pub)黏贴到该文件中"></a>4.在/home/git/.ssh/目录中新建authorized_keys文件，并将客户端提供的公钥(id_rsa.pub)黏贴到该文件中</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch authorized_keys 或 vi authorized_keys</div></pre></td></tr></table></figure>
