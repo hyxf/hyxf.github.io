@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://www.gutils.com/2016/08/02/centos-install-ruby/index.html">
 <meta property="og:site_name" content="GUtils">
 <meta property="og:description" content="Step 1: Upgrade PackagesIt is the best practice to keep your system up to date with latest packages. Before running below command make sure that update will not affect to your running apps ( if any )o">
-<meta property="og:updated_time" content="2016-08-02T11:44:59.000Z">
+<meta property="og:updated_time" content="2016-08-02T11:46:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos 安装 ruby">
 <meta name="twitter:description" content="Step 1: Upgrade PackagesIt is the best practice to keep your system up to date with latest packages. Before running below command make sure that update will not affect to your running apps ( if any )o">
@@ -194,6 +194,7 @@
       
         <h1 id="Step-1-Upgrade-Packages"><a href="#Step-1-Upgrade-Packages" class="headerlink" title="Step 1: Upgrade Packages"></a>Step 1: Upgrade Packages</h1><p>It is the best practice to keep your system up to date with latest packages. Before running below command make sure that update will not affect to your running apps ( if any )on server else skip it</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum update</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h1 id="Step-2-Installing-Recommended-Packages"><a href="#Step-2-Installing-Recommended-Packages" class="headerlink" title="Step 2: Installing Recommended Packages"></a>Step 2: Installing Recommended Packages</h1><p>There are few developemnt libraries required to run Ruby on Linux. Use following command to install recommended packages on your server using yum.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># yum install gcc-c++ patch readline readline-devel zlib zlib-devel</span></div><div class="line"><span class="comment"># yum install libyaml-devel libffi-devel openssl-devel make</span></div><div class="line"><span class="comment"># yum install bzip2 autoconf automake libtool bison iconv-devel</span></div></pre></td></tr></table></figure>
 <h1 id="Step-3-Install-RVM-Ruby-Version-Manager"><a href="#Step-3-Install-RVM-Ruby-Version-Manager" class="headerlink" title="Step 3: Install RVM ( Ruby Version Manager )"></a>Step 3: Install RVM ( Ruby Version Manager )</h1><p>Install latest stable version of RVM on your system using following command. This command will automatically download all required files and install on your system.</p>
