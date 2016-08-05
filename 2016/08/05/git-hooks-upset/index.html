@@ -4,14 +4,30 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: hexo | GUtils</title>
+  <title>git hooks 执行 git命令 | GUtils</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="GUtils">
-<meta property="og:url" content="http://www.gutils.com/tags/hexo/index.html">
+  <meta name="description" content="1234#!/bin/shcd /path/to/working-copy/unset GIT_DIRgit pull repo branch
+
+当git hooks脚本执行git命令时
+[重要]在执行git命令之前，执行
+unset GIT_DIR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git hooks 执行 git命令">
+<meta property="og:url" content="http://www.gutils.com/2016/08/05/git-hooks-upset/index.html">
 <meta property="og:site_name" content="GUtils">
+<meta property="og:description" content="1234#!/bin/shcd /path/to/working-copy/unset GIT_DIRgit pull repo branch
+
+当git hooks脚本执行git命令时
+[重要]在执行git命令之前，执行
+unset GIT_DIR">
+<meta property="og:updated_time" content="2016-08-05T02:58:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GUtils">
+<meta name="twitter:title" content="git hooks 执行 git命令">
+<meta name="twitter:description" content="1234#!/bin/shcd /path/to/working-copy/unset GIT_DIRgit pull repo branch
+
+当git hooks脚本执行git命令时
+[重要]在执行git命令之前，执行
+unset GIT_DIR">
   
     <link rel="alternative" href="/atom.xml" title="GUtils" type="application/atom+xml">
   
@@ -155,53 +171,75 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-git-hooks-upset" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/26/hexo-yilia-code-show-bug/" class="archive-article-date">
-  	<time datetime="2016-07-26T06:21:39.000Z" itemprop="datePublished">7月 26</time>
+    <div class="article-meta">
+      <a href="/2016/08/05/git-hooks-upset/" class="article-date">
+  	<time datetime="2016-08-05T02:52:08.000Z" itemprop="datePublished">2016-08-05</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/26/hexo-yilia-code-show-bug/">hexo yilia 主题 代码片段显示异常处理</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      git hooks 执行 git命令
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"><span class="built_in">cd</span> /path/to/working-copy/</div><div class="line"><span class="built_in">unset</span> GIT_DIR</div><div class="line">git pull repo branch</div></pre></td></tr></table></figure>
+<blockquote>
+<p>当git hooks脚本执行git命令时</p>
+<p>[<strong>重要</strong>]在执行git命令之前，执行</p>
+<p>unset GIT_DIR</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/03/jetty-use/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jetty使用实例</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+
 
 </div>
       <footer id="footer">
@@ -228,9 +266,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
