@@ -157,6 +157,65 @@
 
       <div class="body-wrap">
   
+    <article id="post-java-ssh-login-with-pass" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/05/java-ssh-login-with-pass/" class="article-date">
+  	<time datetime="2016-08-05T07:07:04.000Z" itemprop="datePublished">2016-08-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/05/java-ssh-login-with-pass/">java SSH登陆【by 用户名密码】</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="build-gradle-依赖配置"><a href="#build-gradle-依赖配置" class="headerlink" title="build.gradle 依赖配置"></a>build.gradle 依赖配置</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">compile group: <span class="string">'com.trilead'</span>, name: <span class="string">'trilead-ssh2'</span>, version: <span class="string">'1.0.0-build220'</span></div><div class="line">compile group: <span class="string">'commons-io'</span>, name: <span class="string">'commons-io'</span>, version: <span class="string">'2.5'</span></div></pre></td></tr></table></figure>
+<h1 id="java代码"><a href="#java代码" class="headerlink" title="java代码"></a>java代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SSHDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String serverIP = <span class="string">"xxx.xxx.xxx.xxx"</span>;</div><div class="line">        String serverUser = <span class="string">"your user"</span>;</div><div class="line">        String serverPass = <span class="string">"your pass"</span>;</div><div class="line">        Connection connection = <span class="keyword">new</span> Connection(serverIP, <span class="number">22</span>);</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            connection.connect();</div><div class="line">            <span class="keyword">boolean</span> success = connection.authenticateWithPassword(serverUser, serverPass);</div><div class="line">            <span class="keyword">if</span> (!success) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IOException(<span class="string">"Authentication failed."</span>);</div><div class="line">            &#125;</div><div class="line">            Session session = connection.openSession();</div><div class="line">            session.execCommand(<span class="string">"ls -l"</span>);</div><div class="line">            InputStream inp = session.getStdout();</div><div class="line">            List&lt;String&gt; results = IOUtils.readLines(inp, <span class="string">"utf-8"</span>);</div><div class="line">            <span class="keyword">for</span> (String line : results) &#123;</div><div class="line">                System.out.println(line);</div><div class="line">            &#125;</div><div class="line">            session.close();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            connection.close();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">total 16</div><div class="line">drwxr-xr-x 3 root root 4096 Dec 10  2015 bbs</div><div class="line">drwxr-xr-x 2 root root 4096 Jun 27 10:31 download</div><div class="line">drwxr-xr-x 2 root root 4096 Jan  8  2016 gutils</div><div class="line">drwxr-xr-x 9 root root 4096 Dec  3  2015 soft</div><div class="line">Process finished with <span class="built_in">exit</span> code 0</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-git-hooks-upset" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -706,66 +765,9 @@
 
 
   
-    <article id="post-gradle-maven-credentials" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/26/gradle-maven-credentials/" class="article-date">
-  	<time datetime="2016-07-26T06:36:43.000Z" itemprop="datePublished">2016-07-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/26/gradle-maven-credentials/">gradle访问maven私服</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Gradle-设置用户名密码访问Maven私服"><a href="#Gradle-设置用户名密码访问Maven私服" class="headerlink" title="Gradle 设置用户名密码访问Maven私服"></a>Gradle 设置用户名密码访问Maven私服</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">       maven&#123;</div><div class="line">           url getProperty(<span class="string">'http://xxxxx/public'</span>)</div><div class="line">           credentials &#123;</div><div class="line">               username = <span class="string">'hyxf'</span></div><div class="line">               password = <span class="string">'hyxfpass'</span></div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

@@ -157,6 +157,63 @@
 
       <div class="body-wrap">
   
+    <article id="post-gradle-maven-credentials" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/26/gradle-maven-credentials/" class="article-date">
+  	<time datetime="2016-07-26T06:36:43.000Z" itemprop="datePublished">2016-07-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/26/gradle-maven-credentials/">gradle访问maven私服</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Gradle-设置用户名密码访问Maven私服"><a href="#Gradle-设置用户名密码访问Maven私服" class="headerlink" title="Gradle 设置用户名密码访问Maven私服"></a>Gradle 设置用户名密码访问Maven私服</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">       maven&#123;</div><div class="line">           url getProperty(<span class="string">'http://xxxxx/public'</span>)</div><div class="line">           credentials &#123;</div><div class="line">               username = <span class="string">'hyxf'</span></div><div class="line">               password = <span class="string">'hyxfpass'</span></div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hexo-yilia-code-show-bug" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -714,72 +771,9 @@
 
 
   
-    <article id="post-env-var" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/16/env-var/" class="article-date">
-  	<time datetime="2016-07-16T03:55:24.000Z" itemprop="datePublished">2016-07-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/16/env-var/">java环境变量【Mac】</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>java环境变量</p>
-<blockquote>
-<p>仅适用于mac</p>
-<p>如果当前library里有多个版本java,可以通过修改 -v 后面的版本号进行切换</p>
-<p>例如 -v 1.8  or  -v 1.7</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> JAVA_HOME=$(/usr/libexec/java_home -v 1.8)</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>

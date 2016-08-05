@@ -4,30 +4,14 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>git hooks 执行 git命令 | GUtils</title>
+  <title>GUtils</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1234#!/bin/shcd /path/to/working-copy/unset GIT_DIRgit pull repo branch
-
-当git hooks脚本执行git命令时
-[重要]在执行git命令之前，执行
-unset GIT_DIR">
-<meta property="og:type" content="article">
-<meta property="og:title" content="git hooks 执行 git命令">
-<meta property="og:url" content="http://www.gutils.com/2016/08/05/git-hooks-upset/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="GUtils">
+<meta property="og:url" content="http://www.gutils.com/page/3/index.html">
 <meta property="og:site_name" content="GUtils">
-<meta property="og:description" content="1234#!/bin/shcd /path/to/working-copy/unset GIT_DIRgit pull repo branch
-
-当git hooks脚本执行git命令时
-[重要]在执行git命令之前，执行
-unset GIT_DIR">
-<meta property="og:updated_time" content="2016-08-05T02:58:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git hooks 执行 git命令">
-<meta name="twitter:description" content="1234#!/bin/shcd /path/to/working-copy/unset GIT_DIRgit pull repo branch
-
-当git hooks脚本执行git命令时
-[重要]在执行git命令之前，执行
-unset GIT_DIR">
+<meta name="twitter:title" content="GUtils">
   
     <link rel="alternative" href="/atom.xml" title="GUtils" type="application/atom+xml">
   
@@ -171,11 +155,13 @@ unset GIT_DIR">
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-git-hooks-upset" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
+  
+    <article id="post-env-var" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/05/git-hooks-upset/" class="article-date">
-  	<time datetime="2016-08-05T02:52:08.000Z" itemprop="datePublished">2016-08-05</time>
+      <a href="/2016/07/16/env-var/" class="article-date">
+  	<time datetime="2016-07-16T03:55:24.000Z" itemprop="datePublished">2016-07-16</time>
 </a>
     </div>
   
@@ -187,59 +173,41 @@ unset GIT_DIR">
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      git hooks 执行 git命令
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/16/env-var/">java环境变量【Mac】</a>
     </h1>
   
 
       </header>
       
-      <div class="article-info article-info-post">
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
-	</div>
-
-        
-
-        <div class="clearfix"></div>
-      </div>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"><span class="built_in">cd</span> /path/to/working-copy/</div><div class="line"><span class="built_in">unset</span> GIT_DIR</div><div class="line">git pull repo branch</div></pre></td></tr></table></figure>
+        <p>java环境变量</p>
 <blockquote>
-<p>当git hooks脚本执行git命令时</p>
-<p>[<strong>重要</strong>]在执行git命令之前，执行</p>
-<p>unset GIT_DIR</p>
+<p>仅适用于mac</p>
+<p>如果当前library里有多个版本java,可以通过修改 -v 后面的版本号进行切换</p>
+<p>例如 -v 1.8  or  -v 1.7</p>
 </blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> JAVA_HOME=$(/usr/libexec/java_home -v 1.8)</div></pre></td></tr></table></figure>
 
       
     </div>
     
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/08/05/java-ssh-login-with-pass/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          java SSH登陆【by 用户名密码】
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/08/03/jetty-use/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">jetty使用实例</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
 
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
   
 </article>
 
@@ -250,6 +218,13 @@ unset GIT_DIR">
 
 
 
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
+  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -274,8 +249,8 @@ unset GIT_DIR">
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
