@@ -4,18 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>gradle访问maven私服 | GUtils</title>
+  <title>Centos 7 开启端口 | GUtils</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Gradle 设置用户名密码访问Maven私服123456789repositories &amp;#123;       maven&amp;#123;           url getProperty(&apos;http://xxxxx/public&apos;)           credentials &amp;#123;               username = &apos;hyxf&apos;               passwo">
+  <meta name="description" content="CentOS 7 默认没有使用iptables，所以通过编辑iptables的配置文件来开启80端口是不可以的
+
+CentOS 7 采用了 firewalld 防火墙">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gradle访问maven私服">
-<meta property="og:url" content="http://www.gutils.com/2016/07/26/gradle-maven-credentials/index.html">
+<meta property="og:title" content="Centos 7 开启端口">
+<meta property="og:url" content="http://www.gutils.com/2016/08/18/centos-open-port/index.html">
 <meta property="og:site_name" content="GUtils">
-<meta property="og:description" content="Gradle 设置用户名密码访问Maven私服123456789repositories &amp;#123;       maven&amp;#123;           url getProperty(&apos;http://xxxxx/public&apos;)           credentials &amp;#123;               username = &apos;hyxf&apos;               passwo">
-<meta property="og:updated_time" content="2016-07-26T06:42:53.000Z">
+<meta property="og:description" content="CentOS 7 默认没有使用iptables，所以通过编辑iptables的配置文件来开启80端口是不可以的
+
+CentOS 7 采用了 firewalld 防火墙">
+<meta property="og:updated_time" content="2016-08-18T03:05:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gradle访问maven私服">
-<meta name="twitter:description" content="Gradle 设置用户名密码访问Maven私服123456789repositories &amp;#123;       maven&amp;#123;           url getProperty(&apos;http://xxxxx/public&apos;)           credentials &amp;#123;               username = &apos;hyxf&apos;               passwo">
+<meta name="twitter:title" content="Centos 7 开启端口">
+<meta name="twitter:description" content="CentOS 7 默认没有使用iptables，所以通过编辑iptables的配置文件来开启80端口是不可以的
+
+CentOS 7 采用了 firewalld 防火墙">
   
     <link rel="alternative" href="/atom.xml" title="GUtils" type="application/atom+xml">
   
@@ -159,11 +165,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-gradle-maven-credentials" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-centos-open-port" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/26/gradle-maven-credentials/" class="article-date">
-  	<time datetime="2016-07-26T06:36:43.000Z" itemprop="datePublished">2016-07-26</time>
+      <a href="/2016/08/18/centos-open-port/" class="article-date">
+  	<time datetime="2016-08-18T03:03:36.000Z" itemprop="datePublished">2016-08-18</time>
 </a>
     </div>
   
@@ -176,7 +182,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      gradle访问maven私服
+      Centos 7 开启端口
     </h1>
   
 
@@ -185,7 +191,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 	</div>
 
         
@@ -196,7 +202,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Gradle-设置用户名密码访问Maven私服"><a href="#Gradle-设置用户名密码访问Maven私服" class="headerlink" title="Gradle 设置用户名密码访问Maven私服"></a>Gradle 设置用户名密码访问Maven私服</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">       maven&#123;</div><div class="line">           url getProperty(<span class="string">'http://xxxxx/public'</span>)</div><div class="line">           credentials &#123;</div><div class="line">               username = <span class="string">'hyxf'</span></div><div class="line">               password = <span class="string">'hyxfpass'</span></div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+        <p>CentOS 7 默认没有使用iptables，所以通过编辑iptables的配置文件来开启80端口是不可以的</p>
+<blockquote>
+<p>CentOS 7 采用了 firewalld 防火墙</p>
+</blockquote>
+<a id="more"></a>
+<p>如要查询是否开启80端口则：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@hyxf ~]<span class="comment"># firewall-cmd --query-port=80/tcp</span></div><div class="line">no</div></pre></td></tr></table></figure>
+<p>显然80端口没有开启</p>
+<p>下面我们开启80端口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@hyxf ~]<span class="comment"># firewall-cmd --add-port=80/tcp</span></div><div class="line">success</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -206,18 +221,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/07/26/adb-logical-use/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          adb logcat命令行使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/07/26/hexo-yilia-code-show-bug/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo yilia 主题 代码片段显示异常处理</div>
+    <a href="/2016/08/15/send-email-by-python/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python发送邮件</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
