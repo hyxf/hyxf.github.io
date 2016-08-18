@@ -4,27 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>adb logcat命令行使用 | GUtils</title>
+  <title>android命令行更新sdk | GUtils</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="通过adb logical将日志输出到文件.
-清空之前日志
-
-adb logcat -c">
+  <meta name="description" content="进入sdk的tools目录,查看命令帮助
+1sh-4.2# ./android update sdk help">
 <meta property="og:type" content="article">
-<meta property="og:title" content="adb logcat命令行使用">
-<meta property="og:url" content="http://www.gutils.com/2016/07/26/adb-logical-use/index.html">
+<meta property="og:title" content="android命令行更新sdk">
+<meta property="og:url" content="http://www.gutils.com/2016/08/18/android-cmd-update-sdk/index.html">
 <meta property="og:site_name" content="GUtils">
-<meta property="og:description" content="通过adb logical将日志输出到文件.
-清空之前日志
-
-adb logcat -c">
-<meta property="og:updated_time" content="2016-08-03T10:52:12.000Z">
+<meta property="og:description" content="进入sdk的tools目录,查看命令帮助
+1sh-4.2# ./android update sdk help">
+<meta property="og:updated_time" content="2016-08-18T07:11:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="adb logcat命令行使用">
-<meta name="twitter:description" content="通过adb logical将日志输出到文件.
-清空之前日志
-
-adb logcat -c">
+<meta name="twitter:title" content="android命令行更新sdk">
+<meta name="twitter:description" content="进入sdk的tools目录,查看命令帮助
+1sh-4.2# ./android update sdk help">
   
     <link rel="alternative" href="/atom.xml" title="GUtils" type="application/atom+xml">
   
@@ -168,11 +162,11 @@ adb logcat -c">
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-adb-logical-use" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-android-cmd-update-sdk" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/26/adb-logical-use/" class="article-date">
-  	<time datetime="2016-07-26T06:46:03.000Z" itemprop="datePublished">2016-07-26</time>
+      <a href="/2016/08/18/android-cmd-update-sdk/" class="article-date">
+  	<time datetime="2016-08-18T06:49:37.000Z" itemprop="datePublished">2016-08-18</time>
 </a>
     </div>
   
@@ -185,7 +179,7 @@ adb logcat -c">
         
   
     <h1 class="article-title" itemprop="name">
-      adb logcat命令行使用
+      android命令行更新sdk
     </h1>
   
 
@@ -205,31 +199,32 @@ adb logcat -c">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="通过adb-logical将日志输出到文件"><a href="#通过adb-logical将日志输出到文件" class="headerlink" title="通过adb logical将日志输出到文件."></a>通过adb logical将日志输出到文件.</h3><ol>
-<li><p>清空之前日志</p>
-<blockquote>
-<p>adb logcat -c</p>
-</blockquote>
+        <p>进入sdk的tools目录,查看命令帮助</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android update sdk help</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
-</li>
-<li><p>按时间格式输出日志</p>
+<p>好了，可以使用命令行更新了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android update sdk -u -t platform,platform-tool</span></div><div class="line">sh-4.2<span class="comment"># ./android update sdk -u -t Build-tools-24.0.1</span></div></pre></td></tr></table></figure>
+<p>使用如下代理服务器：</p>
 <blockquote>
-<p>add logical -v time &gt; mylog.txt</p>
+<p>大连东软信息学院镜像服务器地址:</p>
+<p><a href="http://mirrors.neusoft.edu.cn" target="_blank" rel="external">http://mirrors.neusoft.edu.cn</a> 端口：80</p>
+<p>北京化工大学镜像服务器地址:</p>
+<p>IPv4: <a href="http://ubuntu.buct.edu.cn/" target="_blank" rel="external">http://ubuntu.buct.edu.cn/</a> 端口：80</p>
 </blockquote>
-</li>
-<li><p>安装应用</p>
-<blockquote>
-<p>adb install my.apk</p>
-</blockquote>
-</li>
-<li><p>卸载应用</p>
-<blockquote>
-<p>adb uninstall my.apk</p>
-</blockquote>
-</li>
-<li><p>分析mylog.txt日志文件</p>
-</li>
-</ol>
+<p>想查看列表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android list sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 -s</span></div></pre></td></tr></table></figure>
+<p>开始获取列表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android update sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 -s -u -t platform, platform-tool</span></div></pre></td></tr></table></figure>
+<p>然后就可以更新了。<br><br>如果发现更新后总是提示 There is nothing to install or update.<br><br>则返回到上一级目录，删除 temp 文件夹，然后再进入tools目录执行上面命令。<br><br>如果还不行，检查 home 目录的.android目录权限是否可写。<br><br>如果还不行，再检查代理服务器端口和地址，以及是否使用了 -s 参数强制用 http。<br><br>android 程序遇到以上错误不会提示错误，只是提示There is nothing to install or update.<br><br>比如网络代理不通也做如此提示，真是坑。</p>
+<p>查看其他可以获取的内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android list sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 -s --extended</span></div></pre></td></tr></table></figure>
+<p>会显示如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Packages available <span class="keyword">for</span> installation or update: 39</div><div class="line">----------</div><div class="line">id: 1 or <span class="string">"tools"</span></div><div class="line">     Type: Tool</div><div class="line">     Desc: Android SDK Tools, revision 25.1.7</div><div class="line">----------</div><div class="line">id: 2 or <span class="string">"build-tools-24.0.1"</span></div><div class="line">     Type: BuildTool</div><div class="line">     Desc: Android SDK Build-tools, revision 24.0.1</div><div class="line">----------</div><div class="line">id: 3 or <span class="string">"doc-23"</span></div><div class="line">     Type: Doc</div><div class="line">     Desc: Documentation <span class="keyword">for</span> Android SDK, API 23, revision 1</div><div class="line">----------</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>然后再使用 update sdk 取下来，比如去 extra-android-support 就输入如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android update sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 -s -u -t extra-android-support</span></div></pre></td></tr></table></figure>
+<p>或者输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/opt/android-sdk-linux/tools$ ./android update sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 <span class="_">-s</span> -u -t 35</div></pre></td></tr></table></figure>
+<p>即可。</p>
 
       
     </div>
@@ -239,18 +234,9 @@ adb logcat -c">
     
 <nav id="article-nav">
   
-    <a href="/2016/07/28/git-use/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          git简明教程
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/07/26/gradle-maven-credentials/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">gradle访问maven私服</div>
+    <a href="/2016/08/18/centos-open-port/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Centos 7 开启端口</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
