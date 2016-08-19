@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://www.gutils.com/2016/08/19/linux/docker-use/index.html">
 <meta property="og:site_name" content="GUtils">
 <meta property="og:description" content="运行 ‘docker COMMAND –help’ 获取更多命令使用信息">
-<meta property="og:updated_time" content="2016-08-19T03:14:10.000Z">
+<meta property="og:updated_time" content="2016-08-19T03:50:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker命令行总结">
 <meta name="twitter:description" content="运行 ‘docker COMMAND –help’ 获取更多命令使用信息">
@@ -237,6 +237,18 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ docker commit -m <span class="string">"commit message"</span> <span class="_">-a</span> <span class="string">"author"</span> commit CONTAINER_ID [REPOSITORY[:TAG]]</div></pre></td></tr></table></figure>
 <p>显示容器的标准输出</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ docker logs CONTAINER_ID</div></pre></td></tr></table></figure>
+<hr>
+<p>镜像导入/导出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 导出镜像</span></div><div class="line">~ docker save -o ~/Desktop/jenkins.tar jenkins</div><div class="line">or</div><div class="line">~ docker save jenkins &gt; ~/Desktop/jenkins.tar</div><div class="line"><span class="comment"># 导入镜像</span></div><div class="line">~ docker load -i ~/Desktop/jenkins.tar</div><div class="line">or</div><div class="line">~ docker load &lt; ~/Desktop/jenkins.tar</div></pre></td></tr></table></figure>
+<p>容器导入/导出</p>
+<blockquote>
+<p>用户既可以使用 docker load 来导入镜像存储文件到本地镜像库，</p>
+<p>也可以使用 docker import 来导入一个容器快照到本地镜像库。</p>
+<p>这两者的区别在于容器快照文件将丢弃所有的历史记录和元数据信息（即仅保存容器当时的快照状态），</p>
+<p>而镜像存储文件将保存完整记录，体积也要大。</p>
+<p>此外，从容器快照文件导入时可以重新指定标签等元数据信息</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 导出镜像</span></div><div class="line">~ docker <span class="built_in">export</span> -o ~/Desktop/nginx.tar 8b2aac5c6df2</div><div class="line">or</div><div class="line">~ docker <span class="built_in">export</span> 8b2aac5c6df2 &gt; ~/Desktop/nginx.tar</div><div class="line"><span class="comment"># 导入镜像</span></div><div class="line">~ docker import http://example.com/nginx.tar example/imagerepo</div><div class="line">or</div><div class="line">~ cat nginx.tar | docker import - repo/name:tag</div></pre></td></tr></table></figure>
 
       
     </div>
