@@ -97,7 +97,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/android/" style="font-size: 12px;">android</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/git/" style="font-size: 16px;">git</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/jetty/" style="font-size: 10px;">jetty</a> <a href="/tags/linux/" style="font-size: 18px;">linux</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a>
+						<a href="/tags/android/" style="font-size: 12px;">android</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/docker/" style="font-size: 12px;">docker</a> <a href="/tags/git/" style="font-size: 16px;">git</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/jetty/" style="font-size: 10px;">jetty</a> <a href="/tags/linux/" style="font-size: 18px;">linux</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a>
 					</div>
 				</section>
 				
@@ -156,6 +156,93 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-linux/dockerfile-use" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/19/linux/dockerfile-use/" class="article-date">
+  	<time datetime="2016-08-19T05:57:28.000Z" itemprop="datePublished">2016-08-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/19/linux/dockerfile-use/">dockerfile 语法</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Dockerfile包含创建镜像所需要的全部指令。基于在Dockerfile中的指令，我们可以使用Docker build命令来创建镜像。通过减少镜像和容器的创建过程来简化部署。</p>
+<p>Dockerfile支持支持的语法命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INSTRUCTION argument</div></pre></td></tr></table></figure>
+<p>指令不区分大小写。但是，命名约定为全部大写。</p>
+<p>所有Dockerfile都必须以FROM命令开始。 FROM命令会指定镜像基于哪个基础镜像创建，接下来的命令也会基于这个基础镜像（译者注：CentOS和Ubuntu有些命令可是不一样的）。FROM命令可以多次使用，表示会创建多个镜像。具体语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FROM &lt;image name&gt;</div></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FROM ubuntu</div></pre></td></tr></table></figure>
+<p>上面的指定告诉我们，新的镜像将基于Ubuntu的镜像来构建。</p>
+<p>继FROM命令，DockefFile还提供了一些其它的命令以实现自动化。在文本文件或Dockerfile文件中这些命令的顺序就是它们被执行的顺序。</p>
+<p>让我们了解一下这些有趣的Dockerfile命令吧。</p>
+<p>1.MAINTAINER：设置该镜像的作者。语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MAINTAINER &lt;author name&gt;</div></pre></td></tr></table></figure>
+<p>2.RUN：在shell或者exec的环境下执行的命令。RUN指令会在新创建的镜像上添加新的层面，接下来提交的结果用在Dockerfile的下一条指令中。语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RUN 《command》</div></pre></td></tr></table></figure>
+<p>3.ADD：复制文件指令。它有两个参数<source>和<destination>。destination是容器内的路径。source可以是URL或者是启动配置上下文中的一个文件。语法如下：</destination></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ADD 《src》 《destination》</div></pre></td></tr></table></figure>
+<p>4.CMD：提供了容器默认的执行命令。 Dockerfile只允许使用一次CMD指令。 使用多个CMD会抵消之前所有的指令，只有最后一个指令生效。 CMD有三种形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</div><div class="line">CMD [&quot;param1&quot;,&quot;param2&quot;]</div><div class="line">CMD command param1 param2</div></pre></td></tr></table></figure>
+<p>5.EXPOSE：指定容器在运行时监听的端口。语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">EXPOSE &lt;port&gt;;</div></pre></td></tr></table></figure>
+<p>6.ENTRYPOINT：配置给容器一个可执行的命令，这意味着在每次使用镜像创建容器时一个特定的应用程序可以被设置为默认程序。同时也意味着该镜像每次被调用时仅能运行指定的应用。类似于CMD，Docker只允许一个ENTRYPOINT，多个ENTRYPOINT会抵消之前所有的指令，只执行最后的ENTRYPOINT指令。语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ENTRYPOINT [&quot;executable&quot;, &quot;param1&quot;,&quot;param2&quot;]</div><div class="line">ENTRYPOINT command param1 param2</div></pre></td></tr></table></figure>
+<p>7.WORKDIR：指定RUN、CMD与ENTRYPOINT命令的工作目录。语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">WORKDIR /path/to/workdir</div></pre></td></tr></table></figure>
+<p>8.ENV：设置环境变量。它们使用键值对，增加运行程序的灵活性。语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ENV &lt;key&gt; &lt;value&gt;</div></pre></td></tr></table></figure>
+<p>9.USER：镜像正在运行时设置一个UID。语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">USER &lt;uid&gt;</div></pre></td></tr></table></figure>
+<p>10.VOLUME：授权访问从容器内到主机上的目录。语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">VOLUME [&quot;/data&quot;]</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-linux/linux-cmd" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -697,69 +784,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/08/08/auto/svn-java-api-use/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-auto/git-java-api-use" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/07/auto/git-java-api-use/" class="article-date">
-  	<time datetime="2016-08-07T14:12:11.000Z" itemprop="datePublished">2016-08-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/07/auto/git-java-api-use/">git java api</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>项目地址：<a href="https://github.com/eclipse/jgit">https://github.com/eclipse/jgit</a></p>
-</blockquote>
-<h1 id="build-gradle-依赖配置"><a href="#build-gradle-依赖配置" class="headerlink" title="build.gradle 依赖配置"></a>build.gradle 依赖配置</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">compile group: <span class="string">'commons-io'</span>, name: <span class="string">'commons-io'</span>, version: <span class="string">'2.5'</span></div><div class="line">compile group: <span class="string">'org.eclipse.jgit'</span>, name: <span class="string">'org.eclipse.jgit'</span>, version: <span class="string">'4.4.1.201607150455-r'</span></div></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/07/auto/git-java-api-use/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
