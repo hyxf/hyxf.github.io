@@ -4,18 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>java反射实例-访问私有字段 | GUtils</title>
+  <title>spring boot 服务器端部署 | GUtils</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="需要hook的java类1234567public class UserInfo &amp;#123;    private String password;    public String getPassword() &amp;#123; //获取密码        return password;    &amp;#125;&amp;#125;">
+  <meta name="description" content="创建Spring boot应用，build.gradle配置如下
+123456789101112131415buildscript &amp;#123;    repositories &amp;#123;        jcenter()    &amp;#125;    dependencies &amp;#123;        classpath(&quot;org.springframework.boot:spring-boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java反射实例-访问私有字段">
-<meta property="og:url" content="http://www.gutils.com/2016/07/25/java/reflection-use/index.html">
+<meta property="og:title" content="spring boot 服务器端部署">
+<meta property="og:url" content="http://www.gutils.com/2016/08/22/spring-boot-deploy/index.html">
 <meta property="og:site_name" content="GUtils">
-<meta property="og:description" content="需要hook的java类1234567public class UserInfo &amp;#123;    private String password;    public String getPassword() &amp;#123; //获取密码        return password;    &amp;#125;&amp;#125;">
-<meta property="og:updated_time" content="2016-08-02T00:54:10.000Z">
+<meta property="og:description" content="创建Spring boot应用，build.gradle配置如下
+123456789101112131415buildscript &amp;#123;    repositories &amp;#123;        jcenter()    &amp;#125;    dependencies &amp;#123;        classpath(&quot;org.springframework.boot:spring-boot">
+<meta property="og:updated_time" content="2016-08-22T10:33:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java反射实例-访问私有字段">
-<meta name="twitter:description" content="需要hook的java类1234567public class UserInfo &amp;#123;    private String password;    public String getPassword() &amp;#123; //获取密码        return password;    &amp;#125;&amp;#125;">
+<meta name="twitter:title" content="spring boot 服务器端部署">
+<meta name="twitter:description" content="创建Spring boot应用，build.gradle配置如下
+123456789101112131415buildscript &amp;#123;    repositories &amp;#123;        jcenter()    &amp;#125;    dependencies &amp;#123;        classpath(&quot;org.springframework.boot:spring-boot">
   
     <link rel="alternative" href="/atom.xml" title="GUtils" type="application/atom+xml">
   
@@ -159,11 +162,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-java/reflection-use" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-spring-boot-deploy" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/25/java/reflection-use/" class="article-date">
-  	<time datetime="2016-07-25T02:38:38.000Z" itemprop="datePublished">2016-07-25</time>
+      <a href="/2016/08/22/spring-boot-deploy/" class="article-date">
+  	<time datetime="2016-08-22T10:22:38.000Z" itemprop="datePublished">2016-08-22</time>
 </a>
     </div>
   
@@ -176,7 +179,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      java反射实例-访问私有字段
+      spring boot 服务器端部署
     </h1>
   
 
@@ -185,7 +188,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/［-spring-linux-］/">［"spring","linux"］</a></li></ul>
 	</div>
 
         
@@ -196,9 +199,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="需要hook的java类"><a href="#需要hook的java类" class="headerlink" title="需要hook的java类"></a>需要hook的java类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String password;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123; <span class="comment">//获取密码</span></div><div class="line">        <span class="keyword">return</span> password;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <p>创建Spring boot应用，build.gradle配置如下</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath(<span class="string">"org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span></div><div class="line">apply <span class="string">plugin:</span> <span class="string">'idea'</span></div><div class="line">apply <span class="string">plugin:</span> <span class="string">'spring-boot'</span></div><div class="line"></div><div class="line">springBoot &#123;</div><div class="line">    executable = <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="反射代码"><a href="#反射代码" class="headerlink" title="反射代码"></a>反射代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Class&lt;?&gt; classUserInfo = Class.forName(<span class="string">"com.gutils.main.UserInfo"</span>);</div><div class="line">        Object objUserInfo = classUserInfo.newInstance();</div><div class="line">        Field fieldPass = classUserInfo.getDeclaredField(<span class="string">"password"</span>);</div><div class="line">        fieldPass.setAccessible(<span class="keyword">true</span>);</div><div class="line">        fieldPass.set(objUserInfo, <span class="string">"hyxfpassword"</span>);</div><div class="line">        System.out.println(fieldPass.get(objUserInfo));</div><div class="line">    &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125; <span class="keyword">catch</span> (InstantiationException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125; <span class="keyword">catch</span> (NoSuchFieldException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>执行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ gradle bootRepackage</div></pre></td></tr></table></figure>
+<p>在build/libs目录生成Apker-1.0.jar</p>
+<p>将Apker-1.0.jar文件存放到服务器如下目录位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/home/mauser/service/Apker/Apker.jar</div></pre></td></tr></table></figure>
+<p>在init.d目录建立软连接</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ sudo ln <span class="_">-s</span> /home/mauser/service/Apker/Apker.jar /etc/init.d/Apker</div></pre></td></tr></table></figure>
+<blockquote>
+<p>重要：上面命令涉及的文件路径为 <em>绝对路径</em></p>
+</blockquote>
+<p>启动服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ service Apker start</div></pre></td></tr></table></figure>
+<blockquote>
+<p>PID using /var/run/<appname>/<appname>.pid</appname></appname></p>
+<p>logs to /var/log/<appname>.log</appname></p>
+</blockquote>
 
       
     </div>
@@ -208,18 +227,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/07/25/linux/ttygif-use/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          ttygif 使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/07/25/java/javapoet-use/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">javapoet实例</div>
+    <a href="/2016/08/19/linux/dockerfile-use/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Dockerfile 语法</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
