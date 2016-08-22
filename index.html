@@ -174,7 +174,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/22/spring-boot-deploy/">spring boot 服务器端部署</a>
+      <a class="article-title" href="/2016/08/22/spring-boot-deploy/">Spring boot 服务器端部署</a>
     </h1>
   
 
@@ -184,7 +184,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>创建Spring boot应用，build.gradle配置如下</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath(<span class="string">"org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span></div><div class="line">apply <span class="string">plugin:</span> <span class="string">'idea'</span></div><div class="line">apply <span class="string">plugin:</span> <span class="string">'spring-boot'</span></div><div class="line"></div><div class="line">springBoot &#123;</div><div class="line">    executable = <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath(<span class="string">"org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span></div><div class="line">apply <span class="string">plugin:</span> <span class="string">'idea'</span></div><div class="line">apply <span class="string">plugin:</span> <span class="string">'spring-boot'</span></div><div class="line">springBoot &#123;</div><div class="line">    executable = <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     

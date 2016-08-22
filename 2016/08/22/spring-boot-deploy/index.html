@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>spring boot 服务器端部署 | GUtils</title>
+  <title>Spring boot 服务器端部署 | GUtils</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="创建Spring boot应用，build.gradle配置如下
-123456789101112131415buildscript &amp;#123;    repositories &amp;#123;        jcenter()    &amp;#125;    dependencies &amp;#123;        classpath(&quot;org.springframework.boot:spring-boot">
+1234567891011121314buildscript &amp;#123;    repositories &amp;#123;        jcenter()    &amp;#125;    dependencies &amp;#123;        classpath(&quot;org.springframework.boot:spring-boot-g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring boot 服务器端部署">
+<meta property="og:title" content="Spring boot 服务器端部署">
 <meta property="og:url" content="http://www.gutils.com/2016/08/22/spring-boot-deploy/index.html">
 <meta property="og:site_name" content="GUtils">
 <meta property="og:description" content="创建Spring boot应用，build.gradle配置如下
-123456789101112131415buildscript &amp;#123;    repositories &amp;#123;        jcenter()    &amp;#125;    dependencies &amp;#123;        classpath(&quot;org.springframework.boot:spring-boot">
-<meta property="og:updated_time" content="2016-08-22T10:35:36.000Z">
+1234567891011121314buildscript &amp;#123;    repositories &amp;#123;        jcenter()    &amp;#125;    dependencies &amp;#123;        classpath(&quot;org.springframework.boot:spring-boot-g">
+<meta property="og:updated_time" content="2016-08-22T10:36:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring boot 服务器端部署">
+<meta name="twitter:title" content="Spring boot 服务器端部署">
 <meta name="twitter:description" content="创建Spring boot应用，build.gradle配置如下
-123456789101112131415buildscript &amp;#123;    repositories &amp;#123;        jcenter()    &amp;#125;    dependencies &amp;#123;        classpath(&quot;org.springframework.boot:spring-boot">
+1234567891011121314buildscript &amp;#123;    repositories &amp;#123;        jcenter()    &amp;#125;    dependencies &amp;#123;        classpath(&quot;org.springframework.boot:spring-boot-g">
   
     <link rel="alternative" href="/atom.xml" title="GUtils" type="application/atom+xml">
   
@@ -179,7 +179,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      spring boot 服务器端部署
+      Spring boot 服务器端部署
     </h1>
   
 
@@ -200,7 +200,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>创建Spring boot应用，build.gradle配置如下</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath(<span class="string">"org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span></div><div class="line">apply <span class="string">plugin:</span> <span class="string">'idea'</span></div><div class="line">apply <span class="string">plugin:</span> <span class="string">'spring-boot'</span></div><div class="line"></div><div class="line">springBoot &#123;</div><div class="line">    executable = <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath(<span class="string">"org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">apply <span class="string">plugin:</span> <span class="string">'java'</span></div><div class="line">apply <span class="string">plugin:</span> <span class="string">'idea'</span></div><div class="line">apply <span class="string">plugin:</span> <span class="string">'spring-boot'</span></div><div class="line">springBoot &#123;</div><div class="line">    executable = <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>执行命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ gradle bootRepackage</div></pre></td></tr></table></figure>
