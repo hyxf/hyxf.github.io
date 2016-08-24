@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>android命令行更新sdk | GUtils</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/img/logo.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">GUtils</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">技术档案</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/fav-site">备忘录</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hyxf" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 12px;">android</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/docker/" style="font-size: 12px;">docker</a> <a href="/tags/git/" style="font-size: 16px;">git</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/jetty/" style="font-size: 10px;">jetty</a> <a href="/tags/linux/" style="font-size: 18px;">linux</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a>
+					</div>
+				</section>
+				
+
+				
+
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">GUtils</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="/img/logo.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">GUtils</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">技术档案</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/fav-site">备忘录</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/hyxf" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-android/android-cmd-update-sdk" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/18/android/android-cmd-update-sdk/" class="article-date">
+  	<time datetime="2016-08-18T06:49:37.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      android命令行更新sdk
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>进入sdk的tools目录,查看命令帮助</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android update sdk help</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>好了，可以使用命令行更新了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android update sdk -u -t platform,platform-tool</span></div><div class="line">sh-4.2<span class="comment"># ./android update sdk -u -t Build-tools-24.0.1</span></div></pre></td></tr></table></figure>
+<p>使用如下代理服务器：</p>
+<blockquote>
+<p>大连东软信息学院镜像服务器地址:</p>
+<p><a href="http://mirrors.neusoft.edu.cn" target="_blank" rel="external">http://mirrors.neusoft.edu.cn</a> 端口：80</p>
+<p>北京化工大学镜像服务器地址:</p>
+<p>IPv4: <a href="http://ubuntu.buct.edu.cn/" target="_blank" rel="external">http://ubuntu.buct.edu.cn/</a> 端口：80</p>
+</blockquote>
+<p>想查看列表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android list sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 -s</span></div></pre></td></tr></table></figure>
+<p>开始获取列表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android update sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 -s -u -t platform, platform-tool</span></div></pre></td></tr></table></figure>
+<p>然后就可以更新了。<br><br>如果发现更新后总是提示 There is nothing to install or update.<br><br>则返回到上一级目录，删除 temp 文件夹，然后再进入tools目录执行上面命令。<br><br>如果还不行，检查 home 目录的.android目录权限是否可写。<br><br>如果还不行，再检查代理服务器端口和地址，以及是否使用了 -s 参数强制用 http。<br><br>android 程序遇到以上错误不会提示错误，只是提示There is nothing to install or update.<br><br>比如网络代理不通也做如此提示，真是坑。</p>
+<p>查看其他可以获取的内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android list sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 -s --extended</span></div></pre></td></tr></table></figure>
+<p>会显示如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Packages available <span class="keyword">for</span> installation or update: 39</div><div class="line">----------</div><div class="line">id: 1 or <span class="string">"tools"</span></div><div class="line">     Type: Tool</div><div class="line">     Desc: Android SDK Tools, revision 25.1.7</div><div class="line">----------</div><div class="line">id: 2 or <span class="string">"build-tools-24.0.1"</span></div><div class="line">     Type: BuildTool</div><div class="line">     Desc: Android SDK Build-tools, revision 24.0.1</div><div class="line">----------</div><div class="line">id: 3 or <span class="string">"doc-23"</span></div><div class="line">     Type: Doc</div><div class="line">     Desc: Documentation <span class="keyword">for</span> Android SDK, API 23, revision 1</div><div class="line">----------</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>然后再使用 update sdk 取下来，比如去 extra-android-support 就输入如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android update sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 -s -u -t extra-android-support</span></div></pre></td></tr></table></figure>
+<p>或者输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android update sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 -s -u -t 35</span></div></pre></td></tr></table></figure>
+<p>即可。</p>
+
+      
+
+      
+
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/19/linux/docker-use/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Docker命令行总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/18/linux/centos-open-port/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Centos 7 开启端口</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 GUtils
+    	</div>
+      	<div class="footer-right">
+      	    by hyxf
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/jquery.githubRepoWidget.min.js"></script>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?8788dbe084072b418ff15a37b234ba09";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+  </div>
+</body>
+</html>
