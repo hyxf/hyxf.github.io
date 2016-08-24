@@ -16,7 +16,7 @@
 <meta property="og:description" content="SSH api for Python
 使用文档：http://docs.paramiko.org/en/2.0/
 开源地址：https://github.com/paramiko/paramiko">
-<meta property="og:updated_time" content="2016-08-24T06:44:25.000Z">
+<meta property="og:updated_time" content="2016-08-24T06:45:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="paramiko 实例">
 <meta name="twitter:description" content="SSH api for Python
@@ -214,7 +214,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">total 16</div><div class="line">drwxr-xr-x 3 root root 4096 Dec 10  2015 bbs</div><div class="line">drwxr-xr-x 3 root root 4096 Aug  9 12:03 download</div><div class="line">drwxr-xr-x 2 root root 4096 Jan  8  2016 gutils</div><div class="line">drwxr-xr-x 9 root root 4096 Dec  3  2015 soft</div><div class="line">Process finished with <span class="built_in">exit</span> code 0</div></pre></td></tr></table></figure>
 <h1 id="文件上传和下载"><a href="#文件上传和下载" class="headerlink" title="文件上传和下载"></a>文件上传和下载</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> paramiko</div><div class="line"><span class="comment">###</span></div><div class="line">t = paramiko.Transport((<span class="string">"xxx.xxx.xxx.xxx"</span>, <span class="number">22</span>))</div><div class="line">t.connect(username=<span class="string">"root"</span>, password=<span class="string">"xxx"</span>)</div><div class="line">sftp = paramiko.SFTPClient.from_transport(t)</div><div class="line">remotepath = <span class="string">'/root/api-bucket.js'</span></div><div class="line">localpath = <span class="string">'/Users/qiudongchao/Downloads/api-bucket.js'</span></div><div class="line"><span class="comment">#文件上传</span></div><div class="line">sftp.put(localpath, remotepath)</div><div class="line"><span class="comment">#文件下载</span></div><div class="line">sftp.get(remotepath, localpath)</div><div class="line">t.close()</div></pre></td></tr></table></figure>
 <p>执行结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Process finished with <span class="built_in">exit</span> code 0</div></pre></td></tr></table></figure></p>
-<p>项目地址</p>
+<p><br></p>
 <div class="github-widget" data-repo="paramiko/paramiko"></div>
 
       
