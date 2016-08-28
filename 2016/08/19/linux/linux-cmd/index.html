@@ -206,6 +206,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 打开目录</span></div><div class="line">open /User/hyxf</div><div class="line"><span class="comment"># 打开当前命令行所在的目录</span></div><div class="line">open .</div></pre></td></tr></table></figure>
 <p>pip安装 忽视某个依赖</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 安装scrapy,忽视six</span></div><div class="line">~ sudo pip install --ignore-installed six scrapy</div></pre></td></tr></table></figure>
+<p>wget后台下载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ wget -b http://demo.com/mysql-5.6.30.tar.gz</div></pre></td></tr></table></figure>
+<p>开启防火墙</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">~ systemctl start firewalld</div><div class="line">~ firewall-cmd --query-port=80/tcp</div><div class="line">~ firewall-cmd --add-port=80/tcp</div></pre></td></tr></table></figure>
 
       
 
