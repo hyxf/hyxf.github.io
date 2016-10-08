@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Centos 7 开启端口 | GUtils</title>
+  <title>gradle-sonar | GUtils</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
     
-<meta name="Keywords" content="linux"/>
+<meta name="Keywords" content="gradle"/>
     
   
   
-<meta name="Description" content="Centos 7 开启端口"/>
+<meta name="Description" content="gradle-sonar"/>
   
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -152,11 +152,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-linux/centos-open-port" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-android/gradle-sonar" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/18/linux/centos-open-port/" class="article-date">
-  	<time datetime="2016-08-18T03:03:36.000Z" itemprop="datePublished">2016-08-18</time>
+      <a href="/2016/10/08/android/gradle-sonar/" class="article-date">
+  	<time datetime="2016-10-08T01:38:32.000Z" itemprop="datePublished">2016-10-08</time>
 </a>
     </div>
   
@@ -169,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Centos 7 开启端口
+      gradle-sonar
     </h1>
   
 
@@ -178,7 +178,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
 	</div>
 
         
@@ -189,16 +189,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>CentOS 7 默认没有使用iptables，所以通过编辑iptables的配置文件来开启80端口是不可以的</p>
-<blockquote>
-<p>CentOS 7 采用了 firewalld 防火墙</p>
+        <h2 id="引入gradle插件"><a href="#引入gradle插件" class="headerlink" title="引入gradle插件"></a>引入gradle插件</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        maven &#123;</div><div class="line">            url <span class="string">"https://plugins.gradle.org/m2/"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath <span class="string">"org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.1"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="插件应用"><a href="#插件应用" class="headerlink" title="插件应用"></a>插件应用</h2><blockquote>
+<p>项目根目录下的 build.gradle 文件配置</p>
 </blockquote>
-<a id="more"></a>
-<p>如要查询是否开启80端口则：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@hyxf ~]<span class="comment"># firewall-cmd --query-port=80/tcp</span></div><div class="line">no</div></pre></td></tr></table></figure>
-<p>显然80端口没有开启</p>
-<p>下面我们开启80端口：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@hyxf ~]<span class="comment"># firewall-cmd --add-port=80/tcp</span></div><div class="line">success</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">apply <span class="string">plugin:</span> <span class="string">"org.sonarqube"</span></div><div class="line"></div><div class="line">sonarqube &#123;</div><div class="line">    properties &#123;</div><div class="line">        property <span class="string">"sonar.projectVersion"</span>,<span class="string">"1"</span>         <span class="comment">//需要添加</span></div><div class="line">        property <span class="string">"sonar.profile"</span>,<span class="string">"mobile-android"</span>   <span class="comment">//mobile-android为自定义sonar规则</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="sonar重要信息配置"><a href="#sonar重要信息配置" class="headerlink" title="sonar重要信息配置"></a>sonar重要信息配置</h2><blockquote>
+<p>项目根目录下的 gradle.properties 或 ~/.gradle/gradle.properties</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">systemProp.sonar.host.url=http://xx.xx.xx.xx:9000</div><div class="line">systemProp.sonar.sourceEncoding=UTF-8</div><div class="line">systemProp.sonar.login=sonar用户名</div><div class="line">systemProp.sonar.password=sonar密码</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Gradle" target="_blank" rel="external">参考：http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Gradle</a></p>
+<p>[参考：<a href="https://plugins.gradle.org/plugin/org.sonarqube]（https://plugins.gradle.org/plugin/org.sonarqube）" target="_blank" rel="external">https://plugins.gradle.org/plugin/org.sonarqube]（https://plugins.gradle.org/plugin/org.sonarqube）</a></p>
+</blockquote>
 
       
 
@@ -217,18 +220,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/08/18/android/android-cmd-update-sdk/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          android命令行更新sdk
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/08/15/python/send-email-by-python/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Python发送邮件</div>
+    <a href="/2016/09/13/android/rap-use/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">RAP接口管理工具</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

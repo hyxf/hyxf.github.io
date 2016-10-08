@@ -4,16 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Centos 7 开启端口 | GUtils</title>
+  <title>Archives: 2016/10 | GUtils</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
     
-<meta name="Keywords" content="linux"/>
+      
+        <meta name="Keywords" content="undefined"/>
+      
     
   
   
-<meta name="Description" content="Centos 7 开启端口"/>
+<meta name="Description" content="undefined"/>
   
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -152,90 +154,54 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-linux/centos-open-port" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2016/08/18/linux/centos-open-port/" class="article-date">
-  	<time datetime="2016-08-18T03:03:36.000Z" itemprop="datePublished">2016-08-18</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/10/08/android/gradle-sonar/" class="archive-article-date">
+  	<time datetime="2016-10-08T01:38:32.000Z" itemprop="datePublished">10月 8</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Centos 7 开启端口
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/10/08/android/gradle-sonar/">gradle-sonar</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
 	</div>
 
-        
+          
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>CentOS 7 默认没有使用iptables，所以通过编辑iptables的配置文件来开启80端口是不可以的</p>
-<blockquote>
-<p>CentOS 7 采用了 firewalld 防火墙</p>
-</blockquote>
-<a id="more"></a>
-<p>如要查询是否开启80端口则：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@hyxf ~]<span class="comment"># firewall-cmd --query-port=80/tcp</span></div><div class="line">no</div></pre></td></tr></table></figure>
-<p>显然80端口没有开启</p>
-<p>下面我们开启80端口：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@hyxf ~]<span class="comment"># firewall-cmd --add-port=80/tcp</span></div><div class="line">success</div></pre></td></tr></table></figure>
-
-      
-
-      
-
-      
-        <br/>
-        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a></div>
-        <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-      
-
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/08/18/android/android-cmd-update-sdk/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          android命令行更新sdk
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/08/15/python/send-email-by-python/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Python发送邮件</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
+
+    
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -260,8 +226,8 @@
 		fancybox: true,
 		animate: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
