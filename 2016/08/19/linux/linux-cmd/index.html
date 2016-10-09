@@ -216,6 +216,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">~ systemctl start firewalld</div><div class="line">~ systemctl <span class="built_in">enable</span> firewalld  <span class="comment">#开机启动</span></div><div class="line">~ firewall-cmd --query-port=80/tcp</div><div class="line">~ firewall-cmd --add-port=80/tcp</div><div class="line">~ firewall-cmd --remove-port=80/tcp</div></pre></td></tr></table></figure>
 <p>jar包class文件替换</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ jar uvf test.jar com/<span class="built_in">test</span>/test.class</div></pre></td></tr></table></figure>
+<p>端口占用查看</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ netstat -apn | grep 8700</div></pre></td></tr></table></figure>
 
       
 
