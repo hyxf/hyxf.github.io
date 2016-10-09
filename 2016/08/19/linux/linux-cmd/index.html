@@ -217,7 +217,7 @@
 <p>jar包class文件替换</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ jar uvf test.jar com/<span class="built_in">test</span>/test.class</div></pre></td></tr></table></figure>
 <p>端口占用查看</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">~ netstat -apn | grep 8700</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 1、查找端口对应的服务pid号。</span></div><div class="line">~ netstat -anlp| grep 端口号</div><div class="line"><span class="comment"># 2、在上述命令的最后一列会给出端口对应应用的pid号</span></div><div class="line">~ <span class="built_in">kill</span> -9 pid 即可关闭服务，并关掉端口。</div></pre></td></tr></table></figure>
 
       
 
