@@ -96,7 +96,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/RAP/" style="font-size: 10px;">RAP</a> <a href="/tags/android/" style="font-size: 14px;">android</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/docker/" style="font-size: 12px;">docker</a> <a href="/tags/git/" style="font-size: 16px;">git</a> <a href="/tags/gradle/" style="font-size: 12px;">gradle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/jetty/" style="font-size: 10px;">jetty</a> <a href="/tags/linux/" style="font-size: 18px;">linux</a> <a href="/tags/mac/" style="font-size: 12px;">mac</a> <a href="/tags/python/" style="font-size: 14px;">python</a> <a href="/tags/ssh/" style="font-size: 12px;">ssh</a>
+						<a href="/tags/RAP/" style="font-size: 10px;">RAP</a> <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/docker/" style="font-size: 11.67px;">docker</a> <a href="/tags/git/" style="font-size: 16.67px;">git</a> <a href="/tags/gradle/" style="font-size: 13.33px;">gradle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/jetty/" style="font-size: 10px;">jetty</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mac/" style="font-size: 11.67px;">mac</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/ssh/" style="font-size: 11.67px;">ssh</a>
 					</div>
 				</section>
 				
@@ -631,6 +631,85 @@
 </article>
 
   
+    <article id="post-android/gradle-dependencies" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/18/android/gradle-dependencies/" class="article-date">
+  	<time datetime="2016-08-18T06:49:37.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/18/android/gradle-dependencies/">gradle依赖解析</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="transitive-true"><a href="#transitive-true" class="headerlink" title="transitive = true"></a>transitive = true</h1><p>transitive dependencies 被称为依赖的依赖，称为“间接依赖”比较合适。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">compile(<span class="string">'com.meituan.android.terminus:library:6.6.1.16@aar'</span>)&#123;</div><div class="line">        transitive = <span class="literal">true</span></div><div class="line">        exclude <span class="string">module:</span> <span class="string">'hotel_model'</span></div><div class="line">        exclude <span class="string">module:</span> <span class="string">'base_model'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在后面加上@aar，意指你只是下载该aar包，而并不下载该aar包所依赖的其他库，那如果想在使用@aar的前提下还能下载其依赖库，则需要加 <strong>transitive=true</strong> 的条件。</p>
+</blockquote>
+<h1 id="排除-transitive-dependencies"><a href="#排除-transitive-dependencies" class="headerlink" title="排除 transitive dependencies"></a>排除 transitive dependencies</h1><p>通过configuration或者dependency可以除去 transitive dependencies：</p>
+<p>build.gradle</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">configurations &#123;</div><div class="line">    compile.exclude <span class="string">module:</span> <span class="string">'commons'</span></div><div class="line">    all*.exclude <span class="string">group:</span> <span class="string">'org.gradle.test.excludes'</span>, <span class="string">module:</span> <span class="string">'reports'</span></div><div class="line">&#125;</div><div class="line">dependencies &#123;</div><div class="line">    compile(<span class="string">"org.gradle.test.excludes:api:1.0"</span>) &#123;</div><div class="line">        exclude <span class="string">module:</span> <span class="string">'shared'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果在configuration中定义一个exclude,那么所有依赖的transitive dependency (指定的)都会被去除。</p>
+<p>定义exclude时候，或只指定group, 或只指定module名字，或二者都指定。</p>
+</blockquote>
+<p>不是所有的transitive dependency 都可以被去除的，如runtime时候使用到的。一般来说，runtime时候用不到的，或者目标环境及平台已经包含该依赖的可以执行exclude去除。<br>那exclude选per-dependency还是per-configuration?，大多数情况我们都选用per-configuration，下面是一些使用exclude的典型场合：</p>
+<ul>
+<li>有licensing问题</li>
+<li>从远程仓库上无法获取到依赖</li>
+<li>runtime时候用不到</li>
+<li>有版本冲突</li>
+</ul>
+<h1 id="exclude的疑问"><a href="#exclude的疑问" class="headerlink" title="exclude的疑问"></a>exclude的疑问</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exclude <span class="string">module:</span> <span class="string">'base_model'</span></div></pre></td></tr></table></figure>
+<p>和</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exclude <span class="string">group:</span><span class="string">'com.name.group'</span> <span class="string">module:</span><span class="string">'base_model'</span></div></pre></td></tr></table></figure>
+<p>的区别是？</p>
+<p>经过测试，二者的作用是完全一样的。</p>
+<h1 id="force-true"><a href="#force-true" class="headerlink" title="force=true"></a>force=true</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">compile(<span class="string">'com.squareup.okhttp:okhttp-mt:2.5.0'</span>) &#123;</div><div class="line">    force = <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们在依赖okhttp的时候很可能发生冲突，就比如依赖的依赖中也包含了okhttp，这种场合下，就会产生版本冲突的问题，加上force = true表明的意思就是即使在有依赖库版本冲突的情况下坚持使用被标注的这个依赖库版本。</p>
+
+      
+
+      
+
+      
+
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+  
     <article id="post-linux/centos-open-port" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -682,60 +761,6 @@
         <p class="article-more-link">
           <a  href="/2016/08/18/linux/centos-open-port/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-  
-    <article id="post-python/send-email-by-python" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/15/python/send-email-by-python/" class="article-date">
-  	<time datetime="2016-08-15T02:26:22.000Z" itemprop="datePublished">2016-08-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/15/python/send-email-by-python/">Python发送邮件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="python-发送邮件"><a href="#python-发送邮件" class="headerlink" title="python 发送邮件"></a>python 发送邮件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> smtplib</div><div class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</div><div class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</div><div class="line"><span class="keyword">from</span> email.utils <span class="keyword">import</span> parseaddr, formataddr</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_format_addr</span><span class="params">(s)</span>:</span></div><div class="line">    name, addr = parseaddr(s)</div><div class="line">    <span class="keyword">return</span> formataddr((Header(name, <span class="string">'utf-8'</span>).encode(), addr.encode(<span class="string">'utf-8'</span>) <span class="keyword">if</span> isinstance(addr, unicode) <span class="keyword">else</span> addr))</div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment">#</span></div><div class="line">fromAddr = <span class="string">"xxxx@xx.com"</span></div><div class="line">toAddr = [<span class="string">"xxxx@xx.com"</span>]</div><div class="line">serverIp = <span class="string">"xx.xx.xx.xx"</span></div><div class="line">message = MIMEText(<span class="string">"email content:hello"</span>, _charset=<span class="string">"utf-8"</span>)</div><div class="line">message[<span class="string">'Subject'</span>] = Header(<span class="string">"email title"</span>, charset=<span class="string">"utf-8"</span>).encode()</div><div class="line">message[<span class="string">'From'</span>] = _format_addr(<span class="string">'xxx &lt;%s&gt;'</span> % fromAddr)</div><div class="line">message[<span class="string">'To'</span>] = _format_addr(<span class="string">'xxx &lt;%s&gt;'</span> % toAddr)</div><div class="line"><span class="comment"># send email</span></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    server = smtplib.SMTP(serverIp, <span class="number">25</span>)</div><div class="line">    <span class="comment"># username = "xxxx"</span></div><div class="line">    <span class="comment"># password = "xxxxxxxx"</span></div><div class="line">    <span class="comment"># server.login(user=username, password=password)</span></div><div class="line">    server.sendmail(fromAddr, toAddr, message.as_string())</div><div class="line">    server.quit()</div><div class="line">    <span class="keyword">print</span> <span class="string">"email send success"</span></div><div class="line"><span class="keyword">except</span> smtplib.SMTPException:</div><div class="line">    <span class="keyword">print</span> <span class="string">"email send error"</span></div></pre></td></tr></table></figure>
-
-      
-
-      
-
-      
-
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
-      
-
       
       <div class="clearfix"></div>
     </div>

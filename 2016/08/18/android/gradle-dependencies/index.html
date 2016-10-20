@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>android命令行更新sdk | GUtils</title>
+  <title>gradle依赖解析 | GUtils</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
     
-<meta name="Keywords" content="android"/>
+<meta name="Keywords" content="gradle"/>
     
   
   
-<meta name="Description" content="android命令行更新sdk"/>
+<meta name="Description" content="gradle依赖解析"/>
   
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -152,10 +152,10 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-android/android-cmd-update-sdk" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-android/gradle-dependencies" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/18/android/android-cmd-update-sdk/" class="article-date">
+      <a href="/2016/08/18/android/gradle-dependencies/" class="article-date">
   	<time datetime="2016-08-18T06:49:37.000Z" itemprop="datePublished">2016-08-18</time>
 </a>
     </div>
@@ -169,7 +169,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      android命令行更新sdk
+      gradle依赖解析
     </h1>
   
 
@@ -178,7 +178,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
 	</div>
 
         
@@ -189,32 +189,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>进入sdk的tools目录,查看命令帮助</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android update sdk help</span></div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>好了，可以使用命令行更新了：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android update sdk -u -t platform,platform-tool</span></div><div class="line">sh-4.2<span class="comment"># ./android update sdk -u -t Build-tools-24.0.1</span></div></pre></td></tr></table></figure>
-<p>使用如下代理服务器：</p>
+        <h1 id="transitive-true"><a href="#transitive-true" class="headerlink" title="transitive = true"></a>transitive = true</h1><p>transitive dependencies 被称为依赖的依赖，称为“间接依赖”比较合适。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">compile(<span class="string">'com.meituan.android.terminus:library:6.6.1.16@aar'</span>)&#123;</div><div class="line">        transitive = <span class="literal">true</span></div><div class="line">        exclude <span class="string">module:</span> <span class="string">'hotel_model'</span></div><div class="line">        exclude <span class="string">module:</span> <span class="string">'base_model'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>大连东软信息学院镜像服务器地址:</p>
-<p><a href="http://mirrors.neusoft.edu.cn" target="_blank" rel="external">http://mirrors.neusoft.edu.cn</a> 端口：80</p>
-<p>北京化工大学镜像服务器地址:</p>
-<p>IPv4: <a href="http://ubuntu.buct.edu.cn/" target="_blank" rel="external">http://ubuntu.buct.edu.cn/</a> 端口：80</p>
+<p>在后面加上@aar，意指你只是下载该aar包，而并不下载该aar包所依赖的其他库，那如果想在使用@aar的前提下还能下载其依赖库，则需要加 <strong>transitive=true</strong> 的条件。</p>
 </blockquote>
-<p>想查看列表</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android list sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 -s</span></div></pre></td></tr></table></figure>
-<p>开始获取列表：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android update sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 -s -u -t platform, platform-tool</span></div></pre></td></tr></table></figure>
-<p>然后就可以更新了。<br><br>如果发现更新后总是提示 There is nothing to install or update.<br><br>则返回到上一级目录，删除 temp 文件夹，然后再进入tools目录执行上面命令。<br><br>如果还不行，检查 home 目录的.android目录权限是否可写。<br><br>如果还不行，再检查代理服务器端口和地址，以及是否使用了 -s 参数强制用 http。<br><br>android 程序遇到以上错误不会提示错误，只是提示There is nothing to install or update.<br><br>比如网络代理不通也做如此提示，真是坑。</p>
-<p>查看其他可以获取的内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android list sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 -s --extended</span></div></pre></td></tr></table></figure>
-<p>会显示如下内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Packages available <span class="keyword">for</span> installation or update: 39</div><div class="line">----------</div><div class="line">id: 1 or <span class="string">"tools"</span></div><div class="line">     Type: Tool</div><div class="line">     Desc: Android SDK Tools, revision 25.1.7</div><div class="line">----------</div><div class="line">id: 2 or <span class="string">"build-tools-24.0.1"</span></div><div class="line">     Type: BuildTool</div><div class="line">     Desc: Android SDK Build-tools, revision 24.0.1</div><div class="line">----------</div><div class="line">id: 3 or <span class="string">"doc-23"</span></div><div class="line">     Type: Doc</div><div class="line">     Desc: Documentation <span class="keyword">for</span> Android SDK, API 23, revision 1</div><div class="line">----------</div><div class="line">...</div></pre></td></tr></table></figure>
-<p>然后再使用 update sdk 取下来，比如去 extra-android-support 就输入如下内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android update sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 -s -u -t extra-android-support</span></div></pre></td></tr></table></figure>
-<p>或者输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh-4.2<span class="comment"># ./android update sdk --proxy-host mirrors.neusoft.edu.cn --proxy-port 80 -s -u -t 35</span></div></pre></td></tr></table></figure>
-<p>即可。</p>
+<h1 id="排除-transitive-dependencies"><a href="#排除-transitive-dependencies" class="headerlink" title="排除 transitive dependencies"></a>排除 transitive dependencies</h1><p>通过configuration或者dependency可以除去 transitive dependencies：</p>
+<p>build.gradle</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">configurations &#123;</div><div class="line">    compile.exclude <span class="string">module:</span> <span class="string">'commons'</span></div><div class="line">    all*.exclude <span class="string">group:</span> <span class="string">'org.gradle.test.excludes'</span>, <span class="string">module:</span> <span class="string">'reports'</span></div><div class="line">&#125;</div><div class="line">dependencies &#123;</div><div class="line">    compile(<span class="string">"org.gradle.test.excludes:api:1.0"</span>) &#123;</div><div class="line">        exclude <span class="string">module:</span> <span class="string">'shared'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果在configuration中定义一个exclude,那么所有依赖的transitive dependency (指定的)都会被去除。</p>
+<p>定义exclude时候，或只指定group, 或只指定module名字，或二者都指定。</p>
+</blockquote>
+<p>不是所有的transitive dependency 都可以被去除的，如runtime时候使用到的。一般来说，runtime时候用不到的，或者目标环境及平台已经包含该依赖的可以执行exclude去除。<br>那exclude选per-dependency还是per-configuration?，大多数情况我们都选用per-configuration，下面是一些使用exclude的典型场合：</p>
+<ul>
+<li>有licensing问题</li>
+<li>从远程仓库上无法获取到依赖</li>
+<li>runtime时候用不到</li>
+<li>有版本冲突</li>
+</ul>
+<h1 id="exclude的疑问"><a href="#exclude的疑问" class="headerlink" title="exclude的疑问"></a>exclude的疑问</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exclude <span class="string">module:</span> <span class="string">'base_model'</span></div></pre></td></tr></table></figure>
+<p>和</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exclude <span class="string">group:</span><span class="string">'com.name.group'</span> <span class="string">module:</span><span class="string">'base_model'</span></div></pre></td></tr></table></figure>
+<p>的区别是？</p>
+<p>经过测试，二者的作用是完全一样的。</p>
+<h1 id="force-true"><a href="#force-true" class="headerlink" title="force=true"></a>force=true</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">compile(<span class="string">'com.squareup.okhttp:okhttp-mt:2.5.0'</span>) &#123;</div><div class="line">    force = <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们在依赖okhttp的时候很可能发生冲突，就比如依赖的依赖中也包含了okhttp，这种场合下，就会产生版本冲突的问题，加上force = true表明的意思就是即使在有依赖库版本冲突的情况下坚持使用被标注的这个依赖库版本。</p>
 
       
 
@@ -233,18 +233,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/08/19/linux/docker-use/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/08/18/android/android-cmd-update-sdk/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Docker命令行总结
+          android命令行更新sdk
         
       </div>
     </a>
   
   
-    <a href="/2016/08/18/android/gradle-dependencies/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">gradle依赖解析</div>
+    <a href="/2016/08/18/linux/centos-open-port/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Centos 7 开启端口</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
