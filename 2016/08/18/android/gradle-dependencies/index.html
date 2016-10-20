@@ -191,6 +191,7 @@
       
         <h1 id="transitive-true"><a href="#transitive-true" class="headerlink" title="transitive = true"></a>transitive = true</h1><p>transitive dependencies 被称为依赖的依赖，称为“间接依赖”比较合适。</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">compile(<span class="string">'com.meituan.android.terminus:library:6.6.1.16@aar'</span>)&#123;</div><div class="line">        transitive = <span class="literal">true</span></div><div class="line">        exclude <span class="string">module:</span> <span class="string">'hotel_model'</span></div><div class="line">        exclude <span class="string">module:</span> <span class="string">'base_model'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <blockquote>
 <p>在后面加上@aar，意指你只是下载该aar包，而并不下载该aar包所依赖的其他库，那如果想在使用@aar的前提下还能下载其依赖库，则需要加 <strong>transitive=true</strong> 的条件。</p>
 </blockquote>

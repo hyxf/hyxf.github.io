@@ -601,31 +601,6 @@
       
         <h1 id="transitive-true"><a href="#transitive-true" class="headerlink" title="transitive = true"></a>transitive = true</h1><p>transitive dependencies 被称为依赖的依赖，称为“间接依赖”比较合适。</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">compile(<span class="string">'com.meituan.android.terminus:library:6.6.1.16@aar'</span>)&#123;</div><div class="line">        transitive = <span class="literal">true</span></div><div class="line">        exclude <span class="string">module:</span> <span class="string">'hotel_model'</span></div><div class="line">        exclude <span class="string">module:</span> <span class="string">'base_model'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>在后面加上@aar，意指你只是下载该aar包，而并不下载该aar包所依赖的其他库，那如果想在使用@aar的前提下还能下载其依赖库，则需要加 <strong>transitive=true</strong> 的条件。</p>
-</blockquote>
-<h1 id="排除-transitive-dependencies"><a href="#排除-transitive-dependencies" class="headerlink" title="排除 transitive dependencies"></a>排除 transitive dependencies</h1><p>通过configuration或者dependency可以除去 transitive dependencies：</p>
-<p>build.gradle</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">configurations &#123;</div><div class="line">    compile.exclude <span class="string">module:</span> <span class="string">'commons'</span></div><div class="line">    all*.exclude <span class="string">group:</span> <span class="string">'org.gradle.test.excludes'</span>, <span class="string">module:</span> <span class="string">'reports'</span></div><div class="line">&#125;</div><div class="line">dependencies &#123;</div><div class="line">    compile(<span class="string">"org.gradle.test.excludes:api:1.0"</span>) &#123;</div><div class="line">        exclude <span class="string">module:</span> <span class="string">'shared'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如果在configuration中定义一个exclude,那么所有依赖的transitive dependency (指定的)都会被去除。</p>
-<p>定义exclude时候，或只指定group, 或只指定module名字，或二者都指定。</p>
-</blockquote>
-<p>不是所有的transitive dependency 都可以被去除的，如runtime时候使用到的。一般来说，runtime时候用不到的，或者目标环境及平台已经包含该依赖的可以执行exclude去除。<br>那exclude选per-dependency还是per-configuration?，大多数情况我们都选用per-configuration，下面是一些使用exclude的典型场合：</p>
-<ul>
-<li>有licensing问题</li>
-<li>从远程仓库上无法获取到依赖</li>
-<li>runtime时候用不到</li>
-<li>有版本冲突</li>
-</ul>
-<h1 id="exclude的疑问"><a href="#exclude的疑问" class="headerlink" title="exclude的疑问"></a>exclude的疑问</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exclude <span class="string">module:</span> <span class="string">'base_model'</span></div></pre></td></tr></table></figure>
-<p>和</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exclude <span class="string">group:</span><span class="string">'com.name.group'</span> <span class="string">module:</span><span class="string">'base_model'</span></div></pre></td></tr></table></figure>
-<p>的区别是？</p>
-<p>经过测试，二者的作用是完全一样的。</p>
-<h1 id="force-true"><a href="#force-true" class="headerlink" title="force=true"></a>force=true</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">compile(<span class="string">'com.squareup.okhttp:okhttp-mt:2.5.0'</span>) &#123;</div><div class="line">    force = <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>我们在依赖okhttp的时候很可能发生冲突，就比如依赖的依赖中也包含了okhttp，这种场合下，就会产生版本冲突的问题，加上force = true表明的意思就是即使在有依赖库版本冲突的情况下坚持使用被标注的这个依赖库版本。</p>
-
       
 
       
@@ -643,6 +618,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/08/18/android/gradle-dependencies/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
