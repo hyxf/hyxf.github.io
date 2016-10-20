@@ -573,64 +573,6 @@
 </article>
 
   
-    <article id="post-android/gradle-dependencies" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/18/android/gradle-dependencies/" class="article-date">
-  	<time datetime="2016-08-18T06:49:37.000Z" itemprop="datePublished">2016-08-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/18/android/gradle-dependencies/">gradle依赖解析</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="transitive-true"><a href="#transitive-true" class="headerlink" title="transitive = true"></a>transitive = true</h1><p>transitive dependencies 被称为依赖的依赖，称为“间接依赖”比较合适。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">compile(<span class="string">'com.meituan.android.terminus:library:6.6.1.16@aar'</span>)&#123;</div><div class="line">        transitive = <span class="literal">true</span></div><div class="line">        exclude <span class="string">module:</span> <span class="string">'hotel_model'</span></div><div class="line">        exclude <span class="string">module:</span> <span class="string">'base_model'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-
-      
-
-      
-
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/18/android/gradle-dependencies/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-  
     <article id="post-android/android-cmd-update-sdk" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -679,6 +621,64 @@
       
         <p class="article-more-link">
           <a  href="/2016/08/18/android/android-cmd-update-sdk/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+  
+    <article id="post-android/gradle-dependencies" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/18/android/gradle-dependencies/" class="article-date">
+  	<time datetime="2016-08-18T06:49:37.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/18/android/gradle-dependencies/">gradle依赖解析</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="transitive-true"><a href="#transitive-true" class="headerlink" title="transitive = true"></a>transitive = true</h1><p>transitive dependencies 被称为依赖的依赖，称为“间接依赖”比较合适。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">compile(<span class="string">'com.meituan.android.terminus:library:6.6.1.16@aar'</span>)&#123;</div><div class="line">        transitive = <span class="literal">true</span></div><div class="line">        exclude <span class="string">module:</span> <span class="string">'hotel_model'</span></div><div class="line">        exclude <span class="string">module:</span> <span class="string">'base_model'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+
+      
+
+      
+
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/08/18/android/gradle-dependencies/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
