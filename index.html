@@ -96,7 +96,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/RAP/" style="font-size: 10px;">RAP</a> <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/docker/" style="font-size: 11.67px;">docker</a> <a href="/tags/git/" style="font-size: 16.67px;">git</a> <a href="/tags/gradle/" style="font-size: 13.33px;">gradle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/jetty/" style="font-size: 10px;">jetty</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mac/" style="font-size: 11.67px;">mac</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/ssh/" style="font-size: 11.67px;">ssh</a>
+						<a href="/tags/RAP/" style="font-size: 10px;">RAP</a> <a href="/tags/android/" style="font-size: 15px;">android</a> <a href="/tags/apk/" style="font-size: 10px;">apk</a> <a href="/tags/doc/" style="font-size: 10px;">doc</a> <a href="/tags/docker/" style="font-size: 11.67px;">docker</a> <a href="/tags/git/" style="font-size: 16.67px;">git</a> <a href="/tags/gradle/" style="font-size: 13.33px;">gradle</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/jetty/" style="font-size: 10px;">jetty</a> <a href="/tags/linux/" style="font-size: 18.33px;">linux</a> <a href="/tags/mac/" style="font-size: 13.33px;">mac</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/ssh/" style="font-size: 11.67px;">ssh</a>
 					</div>
 				</section>
 				
@@ -155,6 +155,66 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-mac/sys-service" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/22/mac/sys-service/" class="article-date">
+  	<time datetime="2016-10-22T03:45:23.000Z" itemprop="datePublished">2016-10-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/22/mac/sys-service/">Mac注册服务</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="编写任务脚本"><a href="#编写任务脚本" class="headerlink" title="编写任务脚本"></a>编写任务脚本</h1><blockquote>
+<p>~/Desktop/run.sh</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">LANG=en_US.UTF-8</div><div class="line"><span class="built_in">export</span> LANG</div><div class="line"><span class="built_in">echo</span> `date` &gt; log.txt</div></pre></td></tr></table></figure>
+      
+
+      
+
+      
+
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/10/22/mac/sys-service/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
   
     <article id="post-android/gradle-dependencies" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -679,66 +739,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/08/18/android/android-cmd-update-sdk/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-  
-    <article id="post-linux/centos-open-port" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/08/18/linux/centos-open-port/" class="article-date">
-  	<time datetime="2016-08-18T03:03:36.000Z" itemprop="datePublished">2016-08-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/18/linux/centos-open-port/">Centos 7 开启端口</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>CentOS 7 默认没有使用iptables，所以通过编辑iptables的配置文件来开启80端口是不可以的</p>
-<blockquote>
-<p>CentOS 7 采用了 firewalld 防火墙</p>
-</blockquote>
-      
-
-      
-
-      
-
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/08/18/linux/centos-open-port/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
